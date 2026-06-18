@@ -531,8 +531,153 @@
             });
 
             function openPasswordModal() {
-                // ... (保留你原本精美的纯前端密码验证与强度 UI 逻辑即可) ...
-                // 注意：在密码保存按钮的 async 点击事件中，可以直接通过 `fetch('/api/password/change')` 路由来拓展你的密码修改通道。
+                const bodyHTML = `
+            <div class="form-group">
+                <label class="form-label" for="inputCurrentPassword">当前密码</label>
+                <input type="password" class="form-input" id="inputCurrentPassword" placeholder="输入当前密码">
+                <div class="form-error-msg" id="currentPasswordError">请输入当前密码</div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="inputNewPassword">新密码</label>
+                <input type="password" class="form-input" id="inputNewPassword" placeholder="输入新密码（至少8位）">
+                <div class="password-strength" id="passwordStrength"><div class="strength-bar" id="strengthBar"></div></div>
+                <div class="form-error-msg" id="newPasswordError">新密码至少需要8个字符</div>
+                <div class="form-hint" id="passwordHint">至少 8 个字符，建议包含字母、数字和符号</div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="inputConfirmPassword">确认新密码</label>
+                <input type="password" class="form-input" id="inputConfirmPassword" placeholder="再次输入新密码">
+                <div class="form-error-msg" id="confirmPasswordError">两次输入的密码不一致</div>
+            </div>
+        `;
+                const footerHTML = `
+            <button class="btn btn-outline" id="btnCancelPassword">取消</button>
+            <button class="btn btn-danger" id="btnSavePassword">更新密码</button>
+        `;
+
+                openModal('修改密码', bodyHTML, footerHTML);
+
+                const inputCurrent = $('#inputCurrentPassword');
+                const inputNew = $('#inputNewPassword');
+                const inputConfirm = $('#inputConfirmPassword');
+                const strengthBar = $('#strengthBar');
+                const passwordHint = $('#passwordHint');
+                const btnSave = $('#btnSavePassword');
+                const btnCancel = $('#btnCancelPassword');
+                const currentError = $('#currentPasswordError');
+                const newError = $('#newPasswordError');
+                const confirmError = $('#confirmPasswordError');
+
+                setTimeout(() => inputCurrent.focus(), 150);
+
+                // 动态密码强度 UI 监测
+                inputNew.addEventListener('input', () => {
+                    const val = inputNew.value;
+                    const strength = getPasswordStrength(val);
+                    strengthBar.className = 'strength-bar';
+                    if (val.length === 0) {
+                        strengthBar.style.width = '0';
+                        passwordHint.textContent = '至少 8 个字符，建议包含字母、数字和符号';
+                        passwordHint.style.color = '';
+                    } else if (strength <= 1) {
+                        strengthBar.classList.add('strength-weak');
+                        passwordHint.textContent = '密码强度：弱 - 请添加更多字符类型';
+                        passwordHint.style.color = '#ea4335';
+                    } else if (strength === 2) {
+                        strengthBar.classList.add('strength-fair');
+                        passwordHint.textContent = '密码强度：一般 - 建议添加特殊符号';
+                        passwordHint.style.color = '#f9a825';
+                    } else if (strength === 3) {
+                        strengthBar.classList.add('strength-good');
+                        passwordHint.textContent = '密码强度：良好';
+                        passwordHint.style.color = '#4285f4';
+                    } else {
+                        strengthBar.classList.add('strength-strong');
+                        passwordHint.textContent = '密码强度：优秀 ✓';
+                        passwordHint.style.color = '#34a853';
+                    }
+                    newError.classList.remove('visible');
+                    inputNew.classList.remove('error');
+                    if (inputConfirm.value) checkConfirmMatch();
+                });
+
+                inputConfirm.addEventListener('input', checkConfirmMatch);
+
+                function checkConfirmMatch() {
+                    if (inputConfirm.value && inputConfirm.value !== inputNew.value) {
+                        confirmError.classList.add('visible');
+                        inputConfirm.classList.add('error');
+                    } else {
+                        confirmError.classList.remove('visible');
+                        inputConfirm.classList.remove('error');
+                    }
+                }
+
+                inputCurrent.addEventListener('input', () => {
+                    currentError.classList.remove('visible');
+                    inputCurrent.classList.remove('error');
+                });
+
+                btnCancel.addEventListener('click', () => closeModal());
+
+                // 点击提交按钮，向 Worker 交互
+                btnSave.addEventListener('click', async () => {
+                    let hasError = false;
+                    const currentPassword = inputCurrent.value;
+                    const newPassword = inputNew.value;
+                    const confirmPassword = inputConfirm.value;
+
+                    if (!currentPassword) {
+                        currentError.classList.add('visible');
+                        inputCurrent.classList.add('error');
+                        hasError = true;
+                    }
+                    if (!newPassword || newPassword.length < 8) {
+                        newError.classList.add('visible');
+                        inputNew.classList.add('error');
+                        hasError = true;
+                    }
+                    if (newPassword !== confirmPassword) {
+                        confirmError.classList.add('visible');
+                        inputConfirm.classList.add('error');
+                        hasError = true;
+                    }
+                    if (hasError) return;
+                    if (currentPassword === newPassword) {
+                        showToast('新密码不能与当前密码相同', 'error');
+                        return;
+                    }
+
+                    btnSave.disabled = true;
+                    btnSave.classList.add('btn-loading');
+                    btnSave.textContent = '更新中...';
+
+                    try {
+                        // 发送异步网络请求到新添加的密码修改路由
+                        const res = await fetch('/api/user/change-password', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                current_password: currentPassword,
+                                new_password: newPassword
+                            })
+                        });
+
+                        const result = await res.json();
+
+                        if (res.ok && result.success) {
+                            closeModal();
+                            showToast('密码已成功更新，请妥善保管', 'success');
+                        } else {
+                            throw new Error(result.message || '密码更新失败');
+                        }
+                    } catch (err) {
+                        showToast(err.message || '更新失败，请确认当前旧密码是否正确', 'error');
+                        btnSave.disabled = false;
+                        btnSave.classList.remove('btn-loading');
+                        btnSave.textContent = '更新密码';
+                    }
+                });
             }
 
             function escapeHTML(str) {
