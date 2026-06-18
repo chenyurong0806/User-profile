@@ -54,10 +54,9 @@
             </div>
             <input type="file" class="hidden-file-input" id="avatarFileInput"
                 accept="image/png,image/jpeg,image/webp,image/gif">
-            <div class="profile-nickname-display" id="nicknameDisplay">
-                用户昵称
+            <div class="profile-username-display" id="usernameDisplay">
+                用户名
             </div>
-            <div class="profile-email-display" id="emailDisplay">user@example.com</div>
         </div>
 
         <!-- 基本信息卡片 -->
@@ -123,7 +122,6 @@
             const state = {
                 username: '', // 存储登录的唯一UID
                 nickname: '用户昵称',
-                email: 'user@example.com',
                 bio: '',
                 avatarBase64: null, // 我们直接使用用户头像的 URL 地址
                 avatarColorClass: 'color-2',
@@ -137,10 +135,9 @@
             const avatarImage = $('#avatarImage');
             const avatarPlaceholder = $('#avatarPlaceholder');
             const avatarFileInput = $('#avatarFileInput');
-            const nicknameDisplay = $('#nicknameDisplay');
+            const usernameValue = $('#usernameValue');
             const nicknameValue = $('#nicknameValue');
             const bioValue = $('#bioValue');
-            const emailDisplay = $('#emailDisplay');
             const navAvatarSmall = $('#navAvatarSmall');
             const modalContainer = $('#modalContainer');
             const toastContainer = $('#toastContainer');
@@ -158,12 +155,11 @@
                         // 将后端 D1 数据库的数据同步到前端状态机
                         state.username = user.username;
                         state.nickname = user.nickname || user.username;
-                        state.email = user.email || '未绑定邮箱';
                         state.bio = user.bio || '';
                         state.avatarBase64 = user.avatar || null; // 数据库中存的是头像 URL 字符串
 
                         renderAll();
-                        showToast('干员档案同步成功', 'success');
+                        showToast('个人资料同步成功', 'success');
                     } else {
                         showToast('登录凭证已失效，正在跳转...', 'error');
                         // 如果未登录，在 1.5 秒后自动踢回登录页
@@ -173,7 +169,7 @@
                     }
                 } catch (err) {
                     console.error(err);
-                    showToast('无法连接到中心认证服务器', 'error');
+                    showToast('无法连接至神经网络', 'error');
                 }
             }
 
@@ -184,10 +180,10 @@
 
                 // 构造出后端准备接收的完整 D1 数据结构
                 const updatedData = {
+                    username: payload.type === 'username' ? payload.username : state.username,
                     nickname: payload.type === 'nickname' ? payload.nickname : state.nickname,
                     bio: payload.type === 'bio' ? payload.bio : state.bio,
                     avatar: payload.type === 'avatar' ? payload.avatar : state.avatarBase64,
-                    email: state.email // 暂未提供修改邮箱渠道，保持原样
                 };
 
                 // 如果是修改密码，逻辑走专门的通道（由于你的 Worker 尚未完善密码通道，这里我们先用普通更新模拟，后面可以自由扩展）
@@ -256,7 +252,6 @@
                 renderAvatar();
                 renderNickname();
                 renderBio();
-                renderEmail();
                 renderNavAvatar();
             }
 
@@ -280,7 +275,7 @@
             }
 
             function renderNickname() {
-                nicknameDisplay.textContent = state.nickname;
+                usernameValue.textContent = state.username;
                 nicknameValue.textContent = state.nickname;
                 if (!state.avatarBase64) {
                     avatarPlaceholder.textContent = getInitialChar(state.nickname);
@@ -295,10 +290,6 @@
                     bioValue.textContent = '尚未设置简介';
                     bioValue.classList.add('placeholder-text');
                 }
-            }
-
-            function renderEmail() {
-                emailDisplay.textContent = state.email;
             }
 
             function renderNavAvatar() {

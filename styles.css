@@ -269,7 +269,7 @@ body {
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
-.profile-nickname-display {
+.profile-username-display {
     font-family: 'Google Sans', 'Roboto', sans-serif;
     font-size: 22px;
     font-weight: 500;
@@ -280,12 +280,6 @@ body {
     align-items: center;
     gap: 8px;
     justify-content: center;
-}
-
-.profile-email-display {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-top: 2px;
 }
 
 /* ========== 通用卡片样式 ========== */
@@ -842,7 +836,7 @@ body {
         font-size: 28px;
     }
 
-    .profile-nickname-display {
+    .profile-username-display {
         font-size: 19px;
     }
 
@@ -915,7 +909,7 @@ body {
         font-size: 22px;
     }
 
-    .profile-nickname-display {
+    .profile-username-display {
         font-size: 17px;
     }
 
