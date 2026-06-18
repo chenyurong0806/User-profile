@@ -135,7 +135,7 @@
             const avatarImage = $('#avatarImage');
             const avatarPlaceholder = $('#avatarPlaceholder');
             const avatarFileInput = $('#avatarFileInput');
-            const usernameValue = $('#usernameValue');
+            const usernameDisplay = $('#usernameDisplay');
             const nicknameValue = $('#nicknameValue');
             const bioValue = $('#bioValue');
             const navAvatarSmall = $('#navAvatarSmall');
@@ -180,7 +180,6 @@
 
                 // 构造出后端准备接收的完整 D1 数据结构
                 const updatedData = {
-                    username: payload.type === 'username' ? payload.username : state.username,
                     nickname: payload.type === 'nickname' ? payload.nickname : state.nickname,
                     bio: payload.type === 'bio' ? payload.bio : state.bio,
                     avatar: payload.type === 'avatar' ? payload.avatar : state.avatarBase64,
@@ -264,7 +263,7 @@
                     avatarImage.style.display = 'none';
                     avatarPlaceholder.style.display = 'flex';
                     avatarPlaceholder.className = 'avatar-placeholder ' + state.avatarColorClass;
-                    avatarPlaceholder.textContent = getInitialChar(state.nickname);
+                    avatarPlaceholder.textContent = getInitialChar(state.username);
                 }
             }
 
@@ -275,10 +274,10 @@
             }
 
             function renderNickname() {
-                usernameValue.textContent = state.username;
+                usernameDisplay.textContent = state.username;
                 nicknameValue.textContent = state.nickname;
                 if (!state.avatarBase64) {
-                    avatarPlaceholder.textContent = getInitialChar(state.nickname);
+                    avatarPlaceholder.textContent = getInitialChar(state.username);
                 }
             }
 
