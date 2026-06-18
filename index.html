@@ -1,113 +1,561 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
-    <title>PRTS - 干员档案管理中心</title>
-    <style>
-        body { background: #121212; color: #e2e2e2; font-family: sans-serif; padding: 40px; display: flex; justify-content: center; }
-        .profile-card { background: #1a1a1a; border: 1px solid #333; width: 450px; padding: 30px; border-left: 4px solid #ffaa00; }
-        h2 { margin-bottom: 20px; font-weight: 400; font-size: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; font-size: 12px; color: #7a7a7a; margin-bottom: 5px; text-transform: uppercase; }
-        input, textarea { width: 100%; padding: 10px; background: #0b0b0b; border: 1px solid #333; color: #fff; box-sizing: border-box; }
-        input:focus, textarea:focus { border-color: #ffaa00; outline: none; }
-        .avatar-preview { width: 80px; height: 80px; border-radius: 50%; border: 2px solid #ffaa00; margin-bottom: 15px; background-size: cover; background-position: center; }
-        button { background: #ffaa00; color: #000; border: none; padding: 12px 20px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 10px; }
-        button:hover { background: #e09600; }
-        #status-msg { margin-top: 10px; font-size: 13px; color: #ff4a4a; font-family: monospace; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人资料 - Google 账号</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<div class="profile-card">
-    <h2>OPERATOR PROFILE // 干员档案修改</h2>
-    
-    <div class="avatar-preview" id="avatar-view"></div>
+    <!-- ==================== 顶部导航栏 ==================== -->
+    <nav class="top-nav">
+        <div class="logo-area">
+            <span class="logo-dot logo-dot-1">P</span>
+            <span class="logo-dot logo-dot-2">r</span>
+            <span class="logo-dot logo-dot-3">o</span>
+            <span class="logo-dot logo-dot-4">f</span>
+            <span class="logo-dot logo-dot-5">i</span>
+            <span class="logo-dot logo-dot-6">l</span>
+            <span class="logo-dot logo-dot-7">e</span>
+        </div>
+        <div class="nav-spacer"></div>
+        <div class="nav-avatar-sm" id="navAvatarSmall" title="个人资料">U</div>
+    </nav>
 
-    <div class="form-group">
-        <label>UID / 唯一账号 (不可修改)</label>
-        <input type="text" id="username" disabled style="background: #222; color: #666;">
-    </div>
-    <div class="form-group">
-        <label>NICKNAME / 干员代称</label>
-        <input type="text" id="nickname">
-    </div>
-    <div class="form-group">
-        <label>AVATAR URL / 头像图片链接</label>
-        <input type="text" id="avatar" oninput="document.getElementById('avatar-view').style.backgroundImage=`url('${this.value}')`">
-    </div>
-    <div class="form-group">
-        <label>EMAIL / 通讯邮件</label>
-        <input type="text" id="email">
-    </div>
-    <div class="form-group">
-        <label>BIO / 个人简介</label>
-        <textarea id="bio" rows="3"></textarea>
-    </div>
+    <!-- ==================== 主内容区 ==================== -->
+    <main class="main-container">
+        <!-- 页面标题 -->
+        <div class="page-header">
+            <h1>个人资料</h1>
+            <p class="subtitle">管理您的个人信息和账号安全设置</p>
+        </div>
 
-    <button onclick="saveProfile()">UPDATE PROFILE // 提交档案更新</button>
-    <div id="status-msg"></div>
-</div>
+        <!-- 头像 & 昵称 卡片 -->
+        <div class="profile-hero-card" id="profileHeroCard">
+            <div class="avatar-wrapper" id="avatarWrapper" title="点击更换头像">
+                <img class="avatar-image" id="avatarImage" src="" alt="头像" style="display:none;">
+                <div class="avatar-placeholder color-2" id="avatarPlaceholder">U</div>
+                <div class="avatar-overlay">
+                    <svg class="camera-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5zm0-5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
+                        <path
+                            d="M20 5h-3.17l-1.24-1.35A1.99 1.99 0 0 0 14.12 3H9.88c-.56 0-1.1.24-1.48.65L7.17 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 14H4V7h3.17c.56 0 1.1-.24 1.48-.65L9.88 5h4.24l1.24 1.35c.37.41.91.65 1.48.65H20v12z" />
+                    </svg>
+                </div>
+            </div>
+            <input type="file" class="hidden-file-input" id="avatarFileInput"
+                accept="image/png,image/jpeg,image/webp,image/gif">
+            <div class="profile-nickname-display" id="nicknameDisplay">
+                用户昵称
+            </div>
+            <div class="profile-email-display" id="emailDisplay">user@example.com</div>
+        </div>
 
-<script>
-    // 1. 页面加载时自动获取当前最新的用户信息，填充到表单里
-    async function fetchProfile() {
-        const msg = document.getElementById('status-msg');
-        try {
-            const res = await fetch('/api/userinfo');
-            const result = await res.json();
-            if (result.loggedIn) {
-                const user = result.data;
-                document.getElementById('username').value = user.username;
-                document.getElementById('nickname').value = user.nickname || user.username;
-                document.getElementById('avatar').value = user.avatar;
-                document.getElementById('email').value = user.email;
-                document.getElementById('bio').value = user.bio;
-                document.getElementById('avatar-view').style.backgroundImage = `url('${user.avatar}')`;
-                msg.innerText = "";
-            } else {
-                msg.innerText = "[-] 错误：检测到登录凭证失效，请重新登录。";
+        <!-- 基本信息卡片 -->
+        <div class="info-card" id="basicInfoCard">
+            <!-- 昵称 -->
+            <div class="card-section editable" id="nicknameSection" title="点击修改昵称">
+                <div class="section-info">
+                    <div class="section-label">昵称</div>
+                    <div class="section-value" id="nicknameValue">用户昵称</div>
+                </div>
+                <button class="edit-btn" aria-label="编辑昵称">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                    </svg>
+                    编辑
+                </button>
+            </div>
+
+            <!-- 简介 -->
+            <div class="card-section editable" id="bioSection" title="点击修改简介">
+                <div class="section-info">
+                    <div class="section-label">简介</div>
+                    <div class="section-value placeholder-text" id="bioValue">尚未设置简介</div>
+                </div>
+                <button class="edit-btn" aria-label="编辑简介">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                    </svg>
+                    编辑
+                </button>
+            </div>
+        </div>
+
+        <!-- 安全设置卡片 -->
+        <div class="info-card" id="securityCard">
+            <div class="card-section editable" id="passwordSection" title="点击修改密码">
+                <div class="section-info">
+                    <div class="section-label">密码</div>
+                    <div class="section-value">••••••••</div>
+                </div>
+                <button class="edit-btn danger-btn" aria-label="修改密码">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z" />
+                    </svg>
+                    修改密码
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== 模态框容器 ==================== -->
+    <div id="modalContainer"></div>
+
+    <!-- ==================== Toast 容器 ==================== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        (function () {
+            // ============ 状态管理 ============
+            const state = {
+                username: '', // 存储登录的唯一UID
+                nickname: '用户昵称',
+                email: 'user@example.com',
+                bio: '',
+                avatarBase64: null, // 我们直接使用用户头像的 URL 地址
+                avatarColorClass: 'color-2',
+            };
+
+            // ============ DOM 元素缓存 ============
+            const $ = (selector) => document.querySelector(selector);
+            const $$ = (selector) => document.querySelectorAll(selector);
+
+            const avatarWrapper = $('#avatarWrapper');
+            const avatarImage = $('#avatarImage');
+            const avatarPlaceholder = $('#avatarPlaceholder');
+            const avatarFileInput = $('#avatarFileInput');
+            const nicknameDisplay = $('#nicknameDisplay');
+            const nicknameValue = $('#nicknameValue');
+            const bioValue = $('#bioValue');
+            const emailDisplay = $('#emailDisplay');
+            const navAvatarSmall = $('#navAvatarSmall');
+            const modalContainer = $('#modalContainer');
+            const toastContainer = $('#toastContainer');
+
+            // ============ 1. 核心数据同步：从 D1 后端获取数据 ============
+            async function init() {
+                showToast('正在同步数据...', 'info');
+                try {
+                    // 向我们在 Worker 中做好的接口发送请求
+                    const res = await fetch('/api/userinfo');
+                    const result = await res.json();
+
+                    if (result.loggedIn && result.data) {
+                        const user = result.data;
+                        // 将后端 D1 数据库的数据同步到前端状态机
+                        state.username = user.username;
+                        state.nickname = user.nickname || user.username;
+                        state.email = user.email || '未绑定邮箱';
+                        state.bio = user.bio || '';
+                        state.avatarBase64 = user.avatar || null; // 数据库中存的是头像 URL 字符串
+
+                        renderAll();
+                        showToast('干员档案同步成功', 'success');
+                    } else {
+                        showToast('登录凭证已失效，正在跳转...', 'error');
+                        // 如果未登录，在 1.5 秒后自动踢回登录页
+                        setTimeout(() => {
+                            window.location.href = `https://login.chenyurong.qzz.io/?from=${encodeURIComponent(window.location.href)}`;
+                        }, 1500);
+                    }
+                } catch (err) {
+                    console.error(err);
+                    showToast('无法连接到中心认证服务器', 'error');
+                }
             }
-        } catch(e) {
-            msg.innerText = "[-] 无法连接到本地验证服务器。";
-        }
-    }
 
-    // 2. 点击按钮后，将表单数据打包发给 Worker 修改接口
-    async function saveProfile() {
-        const msg = document.getElementById('status-msg');
-        msg.style.color = "#ffaa00";
-        msg.innerText = "[*] SYNCING WITH CLOUD DATA...";
+            // ============ 2. 核心数据同步：向 D1 后端提交更新 ============
+            async function apiUpdate(payload) {
+                // payload 包含前端准备修改的数据
+                // 或者是 { type: 'nickname', nickname: 'xxx' } 或者是 { type: 'bio', bio: 'xxx' }
 
-        const updateData = {
-            nickname: document.getElementById('nickname').value,
-            avatar: document.getElementById('avatar').value,
-            email: document.getElementById('email').value,
-            bio: document.getElementById('bio').value
-        };
+                // 构造出后端准备接收的完整 D1 数据结构
+                const updatedData = {
+                    nickname: payload.type === 'nickname' ? payload.nickname : state.nickname,
+                    bio: payload.type === 'bio' ? payload.bio : state.bio,
+                    avatar: payload.type === 'avatar' ? payload.avatar : state.avatarBase64,
+                    email: state.email // 暂未提供修改邮箱渠道，保持原样
+                };
 
-        try {
-            const res = await fetch('/api/user/update', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(updateData)
+                // 如果是修改密码，逻辑走专门的通道（由于你的 Worker 尚未完善密码通道，这里我们先用普通更新模拟，后面可以自由扩展）
+                if (payload.type === 'password') {
+                    // 真实生产环境需要对接专有的密码通道，此处先为前端返回成功
+                    return { success: true };
+                }
+
+                // 发送异步网络请求
+                const res = await fetch('/api/user/update', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(updatedData)
+                });
+
+                return await res.json();
+            }
+
+            // ============ 3. 头像上传与更新逻辑 ============
+            avatarWrapper.addEventListener('click', () => {
+                // 点击头像框，触发隐藏的本地文件选择器
+                avatarFileInput.click();
             });
-            const result = await res.json();
-            if (result.success) {
-                msg.style.color = "#00d2ff";
-                msg.innerText = "[+] PROFILE UPDATED SUCCESSFUL.";
-            } else {
-                msg.style.color = "#ff4a4a";
-                msg.innerText = "[-] UPDATE FAILED: " + result.message;
+
+            avatarFileInput.addEventListener('change', async (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                // 限制头像文件大小不大于 2MB
+                if (file.size > 2 * 1024 * 1024) {
+                    showToast('图片大小不能超过 2MB', 'error');
+                    return;
+                }
+
+                showToast('正在处理头像...', 'info');
+
+                // 将图片转化为 Base64 字符串（这样可以直接存入数据库的 TEXT 字段中）
+                const reader = new FileReader();
+                reader.onload = async (event) => {
+                    const base64Url = event.target.result;
+
+                    try {
+                        // 将转好的 Base64 头像数据提交给 Worker 写入 D1
+                        const result = await apiUpdate({
+                            type: 'avatar',
+                            avatar: base64Url
+                        });
+
+                        if (result.success) {
+                            state.avatarBase64 = base64Url;
+                            renderAvatar();
+                            renderNavAvatar();
+                            showToast('头像更新成功', 'success');
+                        } else {
+                            showToast('头像保存失败：' + result.message, 'error');
+                        }
+                    } catch (err) {
+                        showToast('服务器连接超时，头像上传失败', 'error');
+                    }
+                };
+                reader.readAsDataURL(file);
+            });
+
+            // ============ 初始化渲染 ============
+            function renderAll() {
+                renderAvatar();
+                renderNickname();
+                renderBio();
+                renderEmail();
+                renderNavAvatar();
             }
-        } catch(e) {
-            msg.style.color = "#ff4a4a";
-            msg.innerText = "[-] SERVER ERROR.";
-        }
-    }
 
-    window.addEventListener('DOMContentLoaded', fetchProfile);
-</script>
+            function renderAvatar() {
+                if (state.avatarBase64) {
+                    avatarImage.src = state.avatarBase64;
+                    avatarImage.style.display = 'block';
+                    avatarPlaceholder.style.display = 'none';
+                } else {
+                    avatarImage.style.display = 'none';
+                    avatarPlaceholder.style.display = 'flex';
+                    avatarPlaceholder.className = 'avatar-placeholder ' + state.avatarColorClass;
+                    avatarPlaceholder.textContent = getInitialChar(state.nickname);
+                }
+            }
 
+            function getInitialChar(name) {
+                if (!name || name.trim().length === 0) return 'U';
+                const first = name.trim().charAt(0);
+                return first.toUpperCase();
+            }
+
+            function renderNickname() {
+                nicknameDisplay.textContent = state.nickname;
+                nicknameValue.textContent = state.nickname;
+                if (!state.avatarBase64) {
+                    avatarPlaceholder.textContent = getInitialChar(state.nickname);
+                }
+            }
+
+            function renderBio() {
+                if (state.bio && state.bio.trim()) {
+                    bioValue.textContent = state.bio;
+                    bioValue.classList.remove('placeholder-text');
+                } else {
+                    bioValue.textContent = '尚未设置简介';
+                    bioValue.classList.add('placeholder-text');
+                }
+            }
+
+            function renderEmail() {
+                emailDisplay.textContent = state.email;
+            }
+
+            function renderNavAvatar() {
+                if (state.avatarBase64) {
+                    navAvatarSmall.style.backgroundImage = `url(${state.avatarBase64})`;
+                    navAvatarSmall.style.backgroundSize = 'cover';
+                    navAvatarSmall.style.backgroundPosition = 'center';
+                    navAvatarSmall.textContent = '';
+                    navAvatarSmall.style.color = 'transparent';
+                } else {
+                    navAvatarSmall.style.backgroundImage = '';
+                    navAvatarSmall.style.backgroundSize = '';
+                    navAvatarSmall.style.backgroundPosition = '';
+                    navAvatarSmall.textContent = getInitialChar(state.nickname);
+                    navAvatarSmall.style.color = '#fff';
+                    navAvatarSmall.style.background = '#7c4dff';
+                }
+            }
+
+            // ============ Toast 提示组件 ============
+            function showToast(text, type = 'info') {
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.textContent = text;
+                toastContainer.appendChild(toast);
+
+                // 3秒后淡出并销毁
+                setTimeout(() => {
+                    toast.classList.add('fade-out');
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+
+            // ============ 模态框系统 ============
+            function openModal(title, bodyHTML, footerHTML, onClose) {
+                closeModal();
+
+                const backdrop = document.createElement('div');
+                backdrop.className = 'modal-backdrop';
+                backdrop.innerHTML = `
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <h2>${title}</h2>
+                    <button class="modal-close-btn" aria-label="关闭">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                    </button>
+                </div>
+                <div class="modal-body">${bodyHTML}</div>
+                ${footerHTML ? `<div class="modal-footer">${footerHTML}</div>` : ''}
+            </div>
+        `;
+                modalContainer.appendChild(backdrop);
+
+                const closeBtn = backdrop.querySelector('.modal-close-btn');
+                const handleClose = () => {
+                    if (onClose) onClose();
+                    closeModal();
+                };
+                closeBtn.addEventListener('click', handleClose);
+
+                backdrop.addEventListener('click', (e) => {
+                    if (e.target === backdrop) handleClose();
+                });
+
+                const escHandler = (e) => {
+                    if (e.key === 'Escape') {
+                        handleClose();
+                        document.removeEventListener('keydown', escHandler);
+                    }
+                };
+                document.addEventListener('keydown', escHandler);
+
+                backdrop._cleanup = () => {
+                    document.removeEventListener('keydown', escHandler);
+                };
+
+                return backdrop;
+            }
+
+            function closeModal() {
+                const existingBackdrop = modalContainer.querySelector('.modal-backdrop');
+                if (!existingBackdrop) return;
+                if (existingBackdrop._cleanup) existingBackdrop._cleanup();
+
+                existingBackdrop.classList.add('closing');
+                const dialog = existingBackdrop.querySelector('.modal-dialog');
+                if (dialog) dialog.classList.add('closing');
+
+                setTimeout(() => {
+                    if (existingBackdrop.parentNode) {
+                        existingBackdrop.parentNode.removeChild(existingBackdrop);
+                    }
+                }, 180);
+            }
+
+            // ============ 昵称编辑模态框触发 ============
+            $('#nicknameSection').addEventListener('click', (e) => {
+                openNicknameModal();
+            });
+
+            function openNicknameModal() {
+                const bodyHTML = `
+            <div class="form-group">
+                <label class="form-label" for="inputNickname">昵称</label>
+                <input type="text" class="form-input" id="inputNickname" value="${escapeHTML(state.nickname)}" maxlength="50" placeholder="输入您的昵称">
+                <div class="form-error-msg" id="nicknameError">昵称不能为空</div>
+                <div class="form-hint">最多 50 个字符</div>
+            </div>
+        `;
+                const footerHTML = `
+            <button class="btn btn-outline" id="btnCancelNickname">取消</button>
+            <button class="btn btn-primary" id="btnSaveNickname">保存</button>
+        `;
+
+                openModal('修改昵称', bodyHTML, footerHTML);
+
+                const inputNickname = $('#inputNickname');
+                const nicknameError = $('#nicknameError');
+                const btnSave = $('#btnSaveNickname');
+                const btnCancel = $('#btnCancelNickname');
+
+                setTimeout(() => inputNickname.focus(), 150);
+                inputNickname.select();
+
+                btnCancel.addEventListener('click', () => closeModal());
+
+                btnSave.addEventListener('click', async () => {
+                    const newNickname = inputNickname.value.trim();
+                    if (!newNickname) {
+                        inputNickname.classList.add('error');
+                        nicknameError.classList.add('visible');
+                        inputNickname.focus();
+                        return;
+                    }
+                    if (newNickname === state.nickname) {
+                        closeModal();
+                        return;
+                    }
+
+                    btnSave.disabled = true;
+                    btnSave.classList.add('btn-loading');
+                    btnSave.textContent = '保存中...';
+
+                    try {
+                        const result = await apiUpdate({
+                            type: 'nickname',
+                            nickname: newNickname,
+                        });
+                        if (result.success) {
+                            state.nickname = newNickname;
+                            renderNickname();
+                            renderAvatar();
+                            renderNavAvatar();
+                            closeModal();
+                            showToast('昵称已更新', 'success');
+                        } else {
+                            throw new Error(result.message || '更新失败');
+                        }
+                    } catch (err) {
+                        showToast(err.message || '昵称保存失败，请重试', 'error');
+                        btnSave.disabled = false;
+                        btnSave.classList.remove('btn-loading');
+                        btnSave.textContent = '保存';
+                    }
+                });
+
+                inputNickname.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') btnSave.click();
+                });
+            }
+
+            // ============ 简介编辑模态框触发 ============
+            $('#bioSection').addEventListener('click', () => {
+                openBioModal();
+            });
+
+            function openBioModal() {
+                const bodyHTML = `
+            <div class="form-group">
+                <label class="form-label" for="inputBio">个人简介</label>
+                <textarea class="form-textarea" id="inputBio" maxlength="300" placeholder="介绍一下自己...">${escapeHTML(state.bio)}</textarea>
+                <div class="form-hint">最多 300 个字符 · <span id="bioCharCount">${state.bio.length}</span>/300</div>
+            </div>
+        `;
+                const footerHTML = `
+            <button class="btn btn-outline" id="btnCancelBio">取消</button>
+            <button class="btn btn-primary" id="btnSaveBio">保存</button>
+        `;
+
+                openModal('修改简介', bodyHTML, footerHTML);
+
+                const inputBio = $('#inputBio');
+                const bioCharCount = $('#bioCharCount');
+                const btnSave = $('#btnSaveBio');
+                const btnCancel = $('#btnCancelBio');
+
+                setTimeout(() => inputBio.focus(), 150);
+
+                inputBio.addEventListener('input', () => {
+                    bioCharCount.textContent = inputBio.value.length;
+                });
+
+                btnCancel.addEventListener('click', () => closeModal());
+
+                btnSave.addEventListener('click', async () => {
+                    const newBio = inputBio.value.trim();
+                    if (newBio === state.bio) {
+                        closeModal();
+                        return;
+                    }
+                    btnSave.disabled = true;
+                    btnSave.classList.add('btn-loading');
+                    btnSave.textContent = '保存中...';
+
+                    try {
+                        const result = await apiUpdate({
+                            type: 'bio',
+                            bio: newBio,
+                        });
+                        if (result.success) {
+                            state.bio = newBio;
+                            renderBio();
+                            closeModal();
+                            showToast('简介已更新', 'success');
+                        } else {
+                            throw new Error(result.message || '更新失败');
+                        }
+                    } catch (err) {
+                        showToast(err.message || '简介保存失败，请重试', 'error');
+                        btnSave.disabled = false;
+                        btnSave.classList.remove('btn-loading');
+                        btnSave.textContent = '保存';
+                    }
+                });
+            }
+
+            // ============ 密码修改模态框触发 ============
+            $('#passwordSection').addEventListener('click', () => {
+                openPasswordModal();
+            });
+
+            function openPasswordModal() {
+                // ... (保留你原本精美的纯前端密码验证与强度 UI 逻辑即可) ...
+                // 注意：在密码保存按钮的 async 点击事件中，可以直接通过 `fetch('/api/password/change')` 路由来拓展你的密码修改通道。
+            }
+
+            function escapeHTML(str) {
+                if (!str) return '';
+                const div = document.createElement('div');
+                div.textContent = str;
+                return div.innerHTML;
+            }
+
+            // 绑定初始化生命周期
+            document.addEventListener('DOMContentLoaded', init);
+        })();
+    </script>
 </body>
+
 </html>
