@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人资料 - Google 账号</title>
+    <title>个人资料</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -120,16 +120,15 @@
         (function () {
             // ============ 状态管理 ============
             const state = {
-                username: '', // 存储登录的唯一UID
+                username: '用户名',
                 nickname: '用户昵称',
                 bio: '',
-                avatarBase64: null, // 我们直接使用用户头像的 URL 地址
+                avatarBase64: null,
                 avatarColorClass: 'color-2',
             };
 
             // ============ DOM 元素缓存 ============
             const $ = (selector) => document.querySelector(selector);
-            const $$ = (selector) => document.querySelectorAll(selector);
 
             const avatarWrapper = $('#avatarWrapper');
             const avatarImage = $('#avatarImage');
@@ -142,31 +141,42 @@
             const modalContainer = $('#modalContainer');
             const toastContainer = $('#toastContainer');
 
-            // ============ 1. 核心数据同步：从 D1 后端获取数据 ============
+            // ============ 密码强度评估 ============
+            function getPasswordStrength(password) {
+                if (!password || password.length < 8) return 0;
+                let score = 0;
+                if (/[a-z]/.test(password)) score++;
+                if (/[A-Z]/.test(password)) score++;
+                if (/\d/.test(password)) score++;
+                if (/[^a-zA-Z\d]/.test(password)) score++;
+                // 长度加分
+                if (password.length >= 12) score++;
+                return Math.min(score, 4);
+            }
+
+            // ============ 1. 核心数据同步：从后端获取数据 ============
             async function init() {
                 showToast('正在同步数据...', 'info');
                 try {
-                    // 向我们在 Worker 中做好的接口发送请求
                     const res = await fetch('/api/userinfo', {
-                        credentials: 'include' //强迫浏览器无论是谁的请求，必须带上本域的所有 Cookie！
+                        credentials: 'include'
                     });
                     const result = await res.json();
 
                     if (result.loggedIn && result.data) {
                         const user = result.data;
-                        // 将后端 D1 数据库的数据同步到前端状态机
                         state.username = user.username;
                         state.nickname = user.nickname || user.username;
                         state.bio = user.bio || '';
-                        state.avatarBase64 = user.avatar || null; // 数据库中存的是头像 URL 字符串
+                        state.avatarBase64 = user.avatar || null;
 
                         renderAll();
                         showToast('个人资料同步成功', 'success');
                     } else {
                         showToast('登录凭证已失效，正在跳转...', 'error');
-                        // 如果未登录，在 1.5 秒后自动踢回登录页
                         setTimeout(() => {
-                            window.location.href = `https://login.chenyurong.qzz.io/?from=${encodeURIComponent(window.location.href)}`;
+                            window.location.href =
+                                `https://login.chenyurong.qzz.io/?from=${encodeURIComponent(window.location.href)}`;
                         }, 1500);
                     }
                 } catch (err) {
@@ -175,25 +185,14 @@
                 }
             }
 
-            // ============ 2. 核心数据同步：向 D1 后端提交更新 ============
+            // ============ 2. 核心数据同步：向后端提交更新 ============
             async function apiUpdate(payload) {
-                // payload 包含前端准备修改的数据
-                // 或者是 { type: 'nickname', nickname: 'xxx' } 或者是 { type: 'bio', bio: 'xxx' }
-
-                // 构造出后端准备接收的完整 D1 数据结构
                 const updatedData = {
                     nickname: payload.type === 'nickname' ? payload.nickname : state.nickname,
                     bio: payload.type === 'bio' ? payload.bio : state.bio,
                     avatar: payload.type === 'avatar' ? payload.avatar : state.avatarBase64,
                 };
 
-                // 如果是修改密码，逻辑走专门的通道（由于你的 Worker 尚未完善密码通道，这里我们先用普通更新模拟，后面可以自由扩展）
-                if (payload.type === 'password') {
-                    // 真实生产环境需要对接专有的密码通道，此处先为前端返回成功
-                    return { success: true };
-                }
-
-                // 发送异步网络请求
                 const res = await fetch('/api/user/update', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -205,7 +204,6 @@
 
             // ============ 3. 头像上传与更新逻辑 ============
             avatarWrapper.addEventListener('click', () => {
-                // 点击头像框，触发隐藏的本地文件选择器
                 avatarFileInput.click();
             });
 
@@ -213,7 +211,6 @@
                 const file = e.target.files[0];
                 if (!file) return;
 
-                // 限制头像文件大小不大于 2MB
                 if (file.size > 2 * 1024 * 1024) {
                     showToast('图片大小不能超过 2MB', 'error');
                     return;
@@ -221,13 +218,11 @@
 
                 showToast('正在处理头像...', 'info');
 
-                // 将图片转化为 Base64 字符串（这样可以直接存入数据库的 TEXT 字段中）
                 const reader = new FileReader();
                 reader.onload = async (event) => {
                     const base64Url = event.target.result;
 
                     try {
-                        // 将转好的 Base64 头像数据提交给 Worker 写入 D1
                         const result = await apiUpdate({
                             type: 'avatar',
                             avatar: base64Url
@@ -271,8 +266,7 @@
 
             function getInitialChar(name) {
                 if (!name || name.trim().length === 0) return 'U';
-                const first = name.trim().charAt(0);
-                return first.toUpperCase();
+                return name.trim().charAt(0).toUpperCase();
             }
 
             function renderNickname() {
@@ -317,7 +311,6 @@
                 toast.textContent = text;
                 toastContainer.appendChild(toast);
 
-                // 3秒后淡出并销毁
                 setTimeout(() => {
                     toast.classList.add('fade-out');
                     setTimeout(() => toast.remove(), 300);
@@ -387,7 +380,7 @@
             }
 
             // ============ 昵称编辑模态框触发 ============
-            $('#nicknameSection').addEventListener('click', (e) => {
+            $('#nicknameSection').addEventListener('click', () => {
                 openNicknameModal();
             });
 
@@ -572,7 +565,6 @@
 
                 setTimeout(() => inputCurrent.focus(), 150);
 
-                // 动态密码强度 UI 监测
                 inputNew.addEventListener('input', () => {
                     const val = inputNew.value;
                     const strength = getPasswordStrength(val);
@@ -622,7 +614,6 @@
 
                 btnCancel.addEventListener('click', () => closeModal());
 
-                // 点击提交按钮，向 Worker 交互
                 btnSave.addEventListener('click', async () => {
                     let hasError = false;
                     const currentPassword = inputCurrent.value;
@@ -655,7 +646,6 @@
                     btnSave.textContent = '更新中...';
 
                     try {
-                        // 发送异步网络请求到新添加的密码修改路由
                         const res = await fetch('/api/user/change-password', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -689,7 +679,6 @@
                 return div.innerHTML;
             }
 
-            // 绑定初始化生命周期
             document.addEventListener('DOMContentLoaded', init);
         })();
     </script>
