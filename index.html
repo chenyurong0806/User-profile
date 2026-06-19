@@ -147,7 +147,9 @@
                 showToast('正在同步数据...', 'info');
                 try {
                     // 向我们在 Worker 中做好的接口发送请求
-                    const res = await fetch('/api/userinfo');
+                    const res = await fetch('/api/userinfo', {
+                        credentials: 'include' //强迫浏览器无论是谁的请求，必须带上本域的所有 Cookie！
+                    });
                     const result = await res.json();
 
                     if (result.loggedIn && result.data) {
