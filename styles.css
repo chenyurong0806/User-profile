@@ -305,6 +305,7 @@ body.modal-open {
     display: none !important;
 }
 
+.avatar-image,
 .avatar-placeholder {
     display: flex;
     align-items: center;
@@ -327,7 +328,12 @@ body.modal-open {
 }
 
 .avatar-placeholder.color-1 {
-    background: linear-gradient(135deg, #7c4dff, #651fff);
+    background:
+        linear-gradient(
+            135deg,
+            #7c4dff,
+            #651fff
+        );
 }
 
 .avatar-placeholder.color-2 {
@@ -335,7 +341,12 @@ body.modal-open {
 }
 
 .avatar-placeholder.color-3 {
-    background: linear-gradient(135deg, #ea4335, #d93025);
+    background:
+        linear-gradient(
+            135deg,
+            #ea4335,
+            #d93025
+        );
 }
 
 .avatar-placeholder.color-4 {
