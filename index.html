@@ -3,685 +3,1072 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人资料</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Orange 账号 - 个人资料</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
     <link
         href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="orange-profile.css"
+    >
 </head>
 
 <body>
 
-    <!-- ==================== 顶部导航栏 ==================== -->
+    <!-- 顶部导航栏 -->
     <nav class="top-nav">
-        <div class="logo-area">
-            <span class="logo-dot logo-dot-1">P</span>
-            <span class="logo-dot logo-dot-2">r</span>
-            <span class="logo-dot logo-dot-3">o</span>
-            <span class="logo-dot logo-dot-4">f</span>
-            <span class="logo-dot logo-dot-5">i</span>
-            <span class="logo-dot logo-dot-6">l</span>
-            <span class="logo-dot logo-dot-7">e</span>
-        </div>
+        <a
+            href="/"
+            class="brand"
+            aria-label="Orange 账号"
+        >
+            <svg
+                class="brand-icon"
+                viewBox="0 0 64 64"
+                aria-hidden="true"
+            >
+                <defs>
+                    <radialGradient
+                        id="orangeBody"
+                        cx="32%"
+                        cy="25%"
+                        r="80%"
+                    >
+                        <stop
+                            offset="0%"
+                            stop-color="#ffca55"
+                        />
+                        <stop
+                            offset="52%"
+                            stop-color="#ff9800"
+                        />
+                        <stop
+                            offset="100%"
+                            stop-color="#ed6c02"
+                        />
+                    </radialGradient>
+
+                    <linearGradient
+                        id="orangeLeaf"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                    >
+                        <stop
+                            offset="0%"
+                            stop-color="#66bb6a"
+                        />
+                        <stop
+                            offset="100%"
+                            stop-color="#2e7d32"
+                        />
+                    </linearGradient>
+                </defs>
+
+                <path
+                    d="M32 16c-1.6-6.2.1-10.6 4.9-13"
+                    fill="none"
+                    stroke="#6d4c41"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                />
+
+                <path
+                    d="M34.5 10.5C39 3.8 48.2 3 55 7.7 50.2 14.8 41.7 17 34.5 10.5Z"
+                    fill="url(#orangeLeaf)"
+                />
+
+                <circle
+                    cx="31.5"
+                    cy="35"
+                    r="23"
+                    fill="url(#orangeBody)"
+                />
+
+                <ellipse
+                    cx="23"
+                    cy="25"
+                    rx="6"
+                    ry="8"
+                    fill="#ffffff"
+                    opacity="0.3"
+                    transform="rotate(30 23 25)"
+                />
+
+                <circle
+                    cx="21"
+                    cy="43"
+                    r="1.3"
+                    fill="#d95e00"
+                    opacity="0.45"
+                />
+
+                <circle
+                    cx="39"
+                    cy="47"
+                    r="1.1"
+                    fill="#d95e00"
+                    opacity="0.4"
+                />
+
+                <circle
+                    cx="45"
+                    cy="34"
+                    r="1.1"
+                    fill="#d95e00"
+                    opacity="0.4"
+                />
+            </svg>
+
+            <span class="brand-name">Orange 账号</span>
+        </a>
+
         <div class="nav-spacer"></div>
-        <div class="nav-avatar-sm" id="navAvatarSmall" title="个人资料">U</div>
+
+        <button
+            type="button"
+            class="nav-avatar-sm"
+            id="navAvatarSmall"
+            title="个人资料"
+            aria-label="个人资料"
+        >
+            U
+        </button>
     </nav>
 
-    <!-- ==================== 主内容区 ==================== -->
+    <!-- 主内容 -->
     <main class="main-container">
-        <!-- 页面标题 -->
-        <div class="page-header">
+
+        <header class="page-header">
             <h1>个人资料</h1>
-            <p class="subtitle">管理您的个人信息和账号安全设置</p>
-        </div>
+            <p class="subtitle">
+                管理您的个人信息和账号安全设置
+            </p>
+        </header>
 
-        <!-- 头像 & 昵称 卡片 -->
-        <div class="profile-hero-card" id="profileHeroCard">
-            <div class="avatar-wrapper" id="avatarWrapper" title="点击更换头像">
-                <img class="avatar-image" id="avatarImage" src="" alt="头像" style="display:none;">
-                <div class="avatar-placeholder color-2" id="avatarPlaceholder">U</div>
-                <div class="avatar-overlay">
-                    <svg class="camera-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <!-- 用户头像 -->
+        <section class="profile-hero-card">
+            <button
+                type="button"
+                class="avatar-wrapper"
+                id="avatarWrapper"
+                title="点击更换头像"
+                aria-label="更换头像"
+            >
+                <img
+                    class="avatar-image"
+                    id="avatarImage"
+                    src=""
+                    alt="用户头像"
+                    hidden
+                >
+
+                <span
+                    class="avatar-placeholder color-2"
+                    id="avatarPlaceholder"
+                >
+                    U
+                </span>
+
+                <span class="avatar-overlay">
+                    <svg
+                        class="camera-icon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
                         <path
-                            d="M12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5zm0-5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
-                        <path
-                            d="M20 5h-3.17l-1.24-1.35A1.99 1.99 0 0 0 14.12 3H9.88c-.56 0-1.1.24-1.48.65L7.17 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 14H4V7h3.17c.56 0 1.1-.24 1.48-.65L9.88 5h4.24l1.24 1.35c.37.41.91.65 1.48.65H20v12z" />
-                    </svg>
-                </div>
-            </div>
-            <input type="file" class="hidden-file-input" id="avatarFileInput"
-                accept="image/png,image/jpeg,image/webp,image/gif">
-            <div class="profile-username-display" id="usernameDisplay">
-                用户名
-            </div>
-        </div>
-
-        <!-- 基本信息卡片 -->
-        <div class="info-card" id="basicInfoCard">
-            <!-- 昵称 -->
-            <div class="card-section editable" id="nicknameSection" title="点击修改昵称">
-                <div class="section-info">
-                    <div class="section-label">昵称</div>
-                    <div class="section-value" id="nicknameValue">用户昵称</div>
-                </div>
-                <button class="edit-btn" aria-label="编辑昵称">
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                    </svg>
-                    编辑
-                </button>
-            </div>
-
-            <!-- 简介 -->
-            <div class="card-section editable" id="bioSection" title="点击修改简介">
-                <div class="section-info">
-                    <div class="section-label">简介</div>
-                    <div class="section-value placeholder-text" id="bioValue">尚未设置简介</div>
-                </div>
-                <button class="edit-btn" aria-label="编辑简介">
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                    </svg>
-                    编辑
-                </button>
-            </div>
-        </div>
-
-        <!-- 安全设置卡片 -->
-        <div class="info-card" id="securityCard">
-            <div class="card-section editable" id="passwordSection" title="点击修改密码">
-                <div class="section-info">
-                    <div class="section-label">密码</div>
-                    <div class="section-value">••••••••</div>
-                </div>
-                <button class="edit-btn danger-btn" aria-label="修改密码">
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z" />
-                    </svg>
-                    修改密码
-                </button>
-            </div>
-        </div>
-    </main>
-
-    <!-- ==================== 模态框容器 ==================== -->
-    <div id="modalContainer"></div>
-
-    <!-- ==================== Toast 容器 ==================== -->
-    <div class="toast-container" id="toastContainer"></div>
-
-    <script>
-        (function () {
-            // ============ 状态管理 ============
-            const state = {
-                username: '用户名',
-                nickname: '用户昵称',
-                bio: '',
-                avatarBase64: null,
-                avatarColorClass: 'color-2',
-            };
-
-            // ============ DOM 元素缓存 ============
-            const $ = (selector) => document.querySelector(selector);
-
-            const avatarWrapper = $('#avatarWrapper');
-            const avatarImage = $('#avatarImage');
-            const avatarPlaceholder = $('#avatarPlaceholder');
-            const avatarFileInput = $('#avatarFileInput');
-            const usernameDisplay = $('#usernameDisplay');
-            const nicknameValue = $('#nicknameValue');
-            const bioValue = $('#bioValue');
-            const navAvatarSmall = $('#navAvatarSmall');
-            const modalContainer = $('#modalContainer');
-            const toastContainer = $('#toastContainer');
-
-            // ============ 密码强度评估 ============
-            function getPasswordStrength(password) {
-                if (!password || password.length < 8) return 0;
-                let score = 0;
-                if (/[a-z]/.test(password)) score++;
-                if (/[A-Z]/.test(password)) score++;
-                if (/\d/.test(password)) score++;
-                if (/[^a-zA-Z\d]/.test(password)) score++;
-                // 长度加分
-                if (password.length >= 12) score++;
-                return Math.min(score, 4);
-            }
-
-            // ============ 1. 核心数据同步：从后端获取数据 ============
-            async function init() {
-                showToast('正在同步数据...', 'info');
-                try {
-                    const res = await fetch('/api/userinfo', {
-                        credentials: 'include'
-                    });
-                    const result = await res.json();
-
-                    if (result.loggedIn && result.data) {
-                        const user = result.data;
-                        state.username = user.username;
-                        state.nickname = user.nickname || user.username;
-                        state.bio = user.bio || '';
-                        state.avatarBase64 = user.avatar || null;
-
-                        renderAll();
-                        showToast('个人资料同步成功', 'success');
-                    } else {
-                        showToast('登录凭证已失效，正在跳转...', 'error');
-                        setTimeout(() => {
-                            window.location.href =
-                                `https://login.chenyurong.qzz.io/?from=${encodeURIComponent(window.location.href)}`;
-                        }, 1500);
-                    }
-                } catch (err) {
-                    console.error(err);
-                    showToast('无法连接至神经网络', 'error');
-                }
-            }
-
-            // ============ 2. 核心数据同步：向后端提交更新 ============
-            async function apiUpdate(payload) {
-                const updatedData = {
-                    nickname: payload.type === 'nickname' ? payload.nickname : state.nickname,
-                    bio: payload.type === 'bio' ? payload.bio : state.bio,
-                    avatar: payload.type === 'avatar' ? payload.avatar : state.avatarBase64,
-                };
-
-                const res = await fetch('/api/user/update', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(updatedData)
-                });
-
-                return await res.json();
-            }
-
-            // ============ 3. 头像上传与更新逻辑 ============
-            avatarWrapper.addEventListener('click', () => {
-                avatarFileInput.click();
-            });
-
-            avatarFileInput.addEventListener('change', async (e) => {
-                const file = e.target.files[0];
-                if (!file) return;
-
-                if (file.size > 2 * 1024 * 1024) {
-                    showToast('图片大小不能超过 2MB', 'error');
-                    return;
-                }
-
-                showToast('正在处理头像...', 'info');
-
-                const reader = new FileReader();
-                reader.onload = async (event) => {
-                    const base64Url = event.target.result;
-
-                    try {
-                        const result = await apiUpdate({
-                            type: 'avatar',
-                            avatar: base64Url
-                        });
-
-                        if (result.success) {
-                            state.avatarBase64 = base64Url;
-                            renderAvatar();
-                            renderNavAvatar();
-                            showToast('头像更新成功', 'success');
-                        } else {
-                            showToast('头像保存失败：' + result.message, 'error');
-                        }
-                    } catch (err) {
-                        showToast('服务器连接超时，头像上传失败', 'error');
-                    }
-                };
-                reader.readAsDataURL(file);
-            });
-
-            // ============ 初始化渲染 ============
-            function renderAll() {
-                renderAvatar();
-                renderNickname();
-                renderBio();
-                renderNavAvatar();
-            }
-
-            function renderAvatar() {
-                if (state.avatarBase64) {
-                    avatarImage.src = state.avatarBase64;
-                    avatarImage.style.display = 'block';
-                    avatarPlaceholder.style.display = 'none';
-                } else {
-                    avatarImage.style.display = 'none';
-                    avatarPlaceholder.style.display = 'flex';
-                    avatarPlaceholder.className = 'avatar-placeholder ' + state.avatarColorClass;
-                    avatarPlaceholder.textContent = getInitialChar(state.username);
-                }
-            }
-
-            function getInitialChar(name) {
-                if (!name || name.trim().length === 0) return 'U';
-                return name.trim().charAt(0).toUpperCase();
-            }
-
-            function renderNickname() {
-                usernameDisplay.textContent = state.username;
-                nicknameValue.textContent = state.nickname;
-                if (!state.avatarBase64) {
-                    avatarPlaceholder.textContent = getInitialChar(state.username);
-                }
-            }
-
-            function renderBio() {
-                if (state.bio && state.bio.trim()) {
-                    bioValue.textContent = state.bio;
-                    bioValue.classList.remove('placeholder-text');
-                } else {
-                    bioValue.textContent = '尚未设置简介';
-                    bioValue.classList.add('placeholder-text');
-                }
-            }
-
-            function renderNavAvatar() {
-                if (state.avatarBase64) {
-                    navAvatarSmall.style.backgroundImage = `url(${state.avatarBase64})`;
-                    navAvatarSmall.style.backgroundSize = 'cover';
-                    navAvatarSmall.style.backgroundPosition = 'center';
-                    navAvatarSmall.textContent = '';
-                    navAvatarSmall.style.color = 'transparent';
-                } else {
-                    navAvatarSmall.style.backgroundImage = '';
-                    navAvatarSmall.style.backgroundSize = '';
-                    navAvatarSmall.style.backgroundPosition = '';
-                    navAvatarSmall.textContent = getInitialChar(state.nickname);
-                    navAvatarSmall.style.color = '#fff';
-                    navAvatarSmall.style.background = '#7c4dff';
-                }
-            }
-
-            // ============ Toast 提示组件 ============
-            function showToast(text, type = 'info') {
-                const toast = document.createElement('div');
-                toast.className = `toast ${type}`;
-                toast.textContent = text;
-                toastContainer.appendChild(toast);
-
-                setTimeout(() => {
-                    toast.classList.add('fade-out');
-                    setTimeout(() => toast.remove(), 300);
-                }, 3000);
-            }
-
-            // ============ 模态框系统 ============
-            function openModal(title, bodyHTML, footerHTML, onClose) {
-                closeModal();
-
-                const backdrop = document.createElement('div');
-                backdrop.className = 'modal-backdrop';
-                backdrop.innerHTML = `
-            <div class="modal-dialog">
-                <div class="modal-header">
-                    <h2>${title}</h2>
-                    <button class="modal-close-btn" aria-label="关闭">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-                    </button>
-                </div>
-                <div class="modal-body">${bodyHTML}</div>
-                ${footerHTML ? `<div class="modal-footer">${footerHTML}</div>` : ''}
-            </div>
-        `;
-                modalContainer.appendChild(backdrop);
-
-                const closeBtn = backdrop.querySelector('.modal-close-btn');
-                const handleClose = () => {
-                    if (onClose) onClose();
-                    closeModal();
-                };
-                closeBtn.addEventListener('click', handleClose);
-
-                backdrop.addEventListener('click', (e) => {
-                    if (e.target === backdrop) handleClose();
-                });
-
-                const escHandler = (e) => {
-                    if (e.key === 'Escape') {
-                        handleClose();
-                        document.removeEventListener('keydown', escHandler);
-                    }
-                };
-                document.addEventListener('keydown', escHandler);
-
-                backdrop._cleanup = () => {
-                    document.removeEventListener('keydown', escHandler);
-                };
-
-                return backdrop;
-            }
-
-            function closeModal() {
-                const existingBackdrop = modalContainer.querySelector('.modal-backdrop');
-                if (!existingBackdrop) return;
-                if (existingBackdrop._cleanup) existingBackdrop._cleanup();
-
-                existingBackdrop.classList.add('closing');
-                const dialog = existingBackdrop.querySelector('.modal-dialog');
-                if (dialog) dialog.classList.add('closing');
-
-                setTimeout(() => {
-                    if (existingBackdrop.parentNode) {
-                        existingBackdrop.parentNode.removeChild(existingBackdrop);
-                    }
-                }, 180);
-            }
-
-            // ============ 昵称编辑模态框触发 ============
-            $('#nicknameSection').addEventListener('click', () => {
-                openNicknameModal();
-            });
-
-            function openNicknameModal() {
-                const bodyHTML = `
-            <div class="form-group">
-                <label class="form-label" for="inputNickname">昵称</label>
-                <input type="text" class="form-input" id="inputNickname" value="${escapeHTML(state.nickname)}" maxlength="50" placeholder="输入您的昵称">
-                <div class="form-error-msg" id="nicknameError">昵称不能为空</div>
-                <div class="form-hint">最多 50 个字符</div>
-            </div>
-        `;
-                const footerHTML = `
-            <button class="btn btn-outline" id="btnCancelNickname">取消</button>
-            <button class="btn btn-primary" id="btnSaveNickname">保存</button>
-        `;
-
-                openModal('修改昵称', bodyHTML, footerHTML);
-
-                const inputNickname = $('#inputNickname');
-                const nicknameError = $('#nicknameError');
-                const btnSave = $('#btnSaveNickname');
-                const btnCancel = $('#btnCancelNickname');
-
-                setTimeout(() => inputNickname.focus(), 150);
-                inputNickname.select();
-
-                btnCancel.addEventListener('click', () => closeModal());
-
-                btnSave.addEventListener('click', async () => {
-                    const newNickname = inputNickname.value.trim();
-                    if (!newNickname) {
-                        inputNickname.classList.add('error');
-                        nicknameError.classList.add('visible');
-                        inputNickname.focus();
-                        return;
-                    }
-                    if (newNickname === state.nickname) {
-                        closeModal();
-                        return;
-                    }
-
-                    btnSave.disabled = true;
-                    btnSave.classList.add('btn-loading');
-                    btnSave.textContent = '保存中...';
-
-                    try {
-                        const result = await apiUpdate({
-                            type: 'nickname',
-                            nickname: newNickname,
-                        });
-                        if (result.success) {
-                            state.nickname = newNickname;
-                            renderNickname();
-                            renderAvatar();
-                            renderNavAvatar();
-                            closeModal();
-                            showToast('昵称已更新', 'success');
-                        } else {
-                            throw new Error(result.message || '更新失败');
-                        }
-                    } catch (err) {
-                        showToast(err.message || '昵称保存失败，请重试', 'error');
-                        btnSave.disabled = false;
-                        btnSave.classList.remove('btn-loading');
-                        btnSave.textContent = '保存';
-                    }
-                });
-
-                inputNickname.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter') btnSave.click();
-                });
-            }
-
-            // ============ 简介编辑模态框触发 ============
-            $('#bioSection').addEventListener('click', () => {
-                openBioModal();
-            });
-
-            function openBioModal() {
-                const bodyHTML = `
-            <div class="form-group">
-                <label class="form-label" for="inputBio">个人简介</label>
-                <textarea class="form-textarea" id="inputBio" maxlength="300" placeholder="介绍一下自己...">${escapeHTML(state.bio)}</textarea>
-                <div class="form-hint">最多 300 个字符 · <span id="bioCharCount">${state.bio.length}</span>/300</div>
-            </div>
-        `;
-                const footerHTML = `
-            <button class="btn btn-outline" id="btnCancelBio">取消</button>
-            <button class="btn btn-primary" id="btnSaveBio">保存</button>
-        `;
-
-                openModal('修改简介', bodyHTML, footerHTML);
-
-                const inputBio = $('#inputBio');
-                const bioCharCount = $('#bioCharCount');
-                const btnSave = $('#btnSaveBio');
-                const btnCancel = $('#btnCancelBio');
-
-                setTimeout(() => inputBio.focus(), 150);
-
-                inputBio.addEventListener('input', () => {
-                    bioCharCount.textContent = inputBio.value.length;
-                });
-
-                btnCancel.addEventListener('click', () => closeModal());
-
-                btnSave.addEventListener('click', async () => {
-                    const newBio = inputBio.value.trim();
-                    if (newBio === state.bio) {
-                        closeModal();
-                        return;
-                    }
-                    btnSave.disabled = true;
-                    btnSave.classList.add('btn-loading');
-                    btnSave.textContent = '保存中...';
-
-                    try {
-                        const result = await apiUpdate({
-                            type: 'bio',
-                            bio: newBio,
-                        });
-                        if (result.success) {
-                            state.bio = newBio;
-                            renderBio();
-                            closeModal();
-                            showToast('简介已更新', 'success');
-                        } else {
-                            throw new Error(result.message || '更新失败');
-                        }
-                    } catch (err) {
-                        showToast(err.message || '简介保存失败，请重试', 'error');
-                        btnSave.disabled = false;
-                        btnSave.classList.remove('btn-loading');
-                        btnSave.textContent = '保存';
-                    }
-                });
-            }
-
-            // ============ 密码修改模态框触发 ============
-            $('#passwordSection').addEventListener('click', () => {
-                openPasswordModal();
-            });
-
-            function openPasswordModal() {
-                const bodyHTML = `
-            <div class="form-group">
-                <label class="form-label" for="inputCurrentPassword">当前密码</label>
-                <input type="password" class="form-input" id="inputCurrentPassword" placeholder="输入当前密码">
-                <div class="form-error-msg" id="currentPasswordError">请输入当前密码</div>
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="inputNewPassword">新密码</label>
-                <input type="password" class="form-input" id="inputNewPassword" placeholder="输入新密码（至少8位）">
-                <div class="password-strength" id="passwordStrength"><div class="strength-bar" id="strengthBar"></div></div>
-                <div class="form-error-msg" id="newPasswordError">新密码至少需要8个字符</div>
-                <div class="form-hint" id="passwordHint">至少 8 个字符，建议包含字母、数字和符号</div>
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="inputConfirmPassword">确认新密码</label>
-                <input type="password" class="form-input" id="inputConfirmPassword" placeholder="再次输入新密码">
-                <div class="form-error-msg" id="confirmPasswordError">两次输入的密码不一致</div>
-            </div>
-        `;
-                const footerHTML = `
-            <button class="btn btn-outline" id="btnCancelPassword">取消</button>
-            <button class="btn btn-danger" id="btnSavePassword">更新密码</button>
-        `;
-
-                openModal('修改密码', bodyHTML, footerHTML);
-
-                const inputCurrent = $('#inputCurrentPassword');
-                const inputNew = $('#inputNewPassword');
-                const inputConfirm = $('#inputConfirmPassword');
-                const strengthBar = $('#strengthBar');
-                const passwordHint = $('#passwordHint');
-                const btnSave = $('#btnSavePassword');
-                const btnCancel = $('#btnCancelPassword');
-                const currentError = $('#currentPasswordError');
-                const newError = $('#newPasswordError');
-                const confirmError = $('#confirmPasswordError');
-
-                setTimeout(() => inputCurrent.focus(), 150);
-
-                inputNew.addEventListener('input', () => {
-                    const val = inputNew.value;
-                    const strength = getPasswordStrength(val);
-                    strengthBar.className = 'strength-bar';
-                    if (val.length === 0) {
-                        strengthBar.style.width = '0';
-                        passwordHint.textContent = '至少 8 个字符，建议包含字母、数字和符号';
-                        passwordHint.style.color = '';
-                    } else if (strength <= 1) {
-                        strengthBar.classList.add('strength-weak');
-                        passwordHint.textContent = '密码强度：弱 - 请添加更多字符类型';
-                        passwordHint.style.color = '#ea4335';
-                    } else if (strength === 2) {
-                        strengthBar.classList.add('strength-fair');
-                        passwordHint.textContent = '密码强度：一般 - 建议添加特殊符号';
-                        passwordHint.style.color = '#f9a825';
-                    } else if (strength === 3) {
-                        strengthBar.classList.add('strength-good');
-                        passwordHint.textContent = '密码强度：良好';
-                        passwordHint.style.color = '#4285f4';
-                    } else {
-                        strengthBar.classList.add('strength-strong');
-                        passwordHint.textContent = '密码强度：优秀 ✓';
-                        passwordHint.style.color = '#34a853';
-                    }
-                    newError.classList.remove('visible');
-                    inputNew.classList.remove('error');
-                    if (inputConfirm.value) checkConfirmMatch();
-                });
-
-                inputConfirm.addEventListener('input', checkConfirmMatch);
-
-                function checkConfirmMatch() {
-                    if (inputConfirm.value && inputConfirm.value !== inputNew.value) {
-                        confirmError.classList.add('visible');
-                        inputConfirm.classList.add('error');
-                    } else {
-                        confirmError.classList.remove('visible');
-                        inputConfirm.classList.remove('error');
-                    }
-                }
-
-                inputCurrent.addEventListener('input', () => {
-                    currentError.classList.remove('visible');
-                    inputCurrent.classList.remove('error');
-                });
-
-                btnCancel.addEventListener('click', () => closeModal());
-
-                btnSave.addEventListener('click', async () => {
-                    let hasError = false;
-                    const currentPassword = inputCurrent.value;
-                    const newPassword = inputNew.value;
-                    const confirmPassword = inputConfirm.value;
-
-                    if (!currentPassword) {
-                        currentError.classList.add('visible');
-                        inputCurrent.classList.add('error');
-                        hasError = true;
-                    }
-                    if (!newPassword || newPassword.length < 8) {
-                        newError.classList.add('visible');
-                        inputNew.classList.add('error');
-                        hasError = true;
-                    }
-                    if (newPassword !== confirmPassword) {
-                        confirmError.classList.add('visible');
-                        inputConfirm.classList.add('error');
-                        hasError = true;
-                    }
-                    if (hasError) return;
-                    if (currentPassword === newPassword) {
-                        showToast('新密码不能与当前密码相同', 'error');
-                        return;
-                    }
-
-                    btnSave.disabled = true;
-                    btnSave.classList.add('btn-loading');
-                    btnSave.textContent = '更新中...';
-
-                    try {
-                        const res = await fetch('/api/user/change-password', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                current_password: currentPassword,
-                                new_password: newPassword
-                            })
-                        });
-
-                        const result = await res.json();
-
-                        if (res.ok && result.success) {
-                            closeModal();
-                            showToast('密码已成功更新，请妥善保管', 'success');
-                        } else {
-                            throw new Error(result.message || '密码更新失败');
-                        }
-                    } catch (err) {
-                        showToast(err.message || '更新失败，请确认当前旧密码是否正确', 'error');
-                        btnSave.disabled = false;
-                        btnSave.classList.remove('btn-loading');
-                        btnSave.textContent = '更新密码';
-                    }
-                });
-            }
-
-            function escapeHTML(str) {
-                if (!str) return '';
-                const div = document.createElement('div');
-                div.textContent = str;
-                return div.innerHTML;
-            }
-
-            document.addEventListener('DOMContentLoaded', init);
-        })();
-    </script>
-</body>
-
-</html>
+                            d="M12 15.5A3.5 3.5 0.io')
+  ) {
+    return '.chenyurong.qzz.io';
+  }
+
+  return hostname;
+}
+
+function safeTarget(raw, fallback) {
+  try {
+    const target = new URL(raw || fallback);
+
+    if (
+      target.protocol === 'http:' ||
+      target.protocol === 'https:'
+    ) {
+      return target;
+    }
+
+    return new URL(fallback);
+  } catch {
+    return new URL(fallback);
+  }
+}
+
+function loginUrl(from) {
+  const target = safeTarget(from, LOGIN_PAGE);
+  const login = new URL(LOGIN_PAGE);
+
+  login.searchParams.set('from', target.toString());
+  login.searchParams.set('site', target.hostname);
+  login.searchParams.set(
+    'icon',
+    `${target.origin}/favicon.ico`
+  );
+
+  return login.toString();
+}
+
+async function readJson(request) {
+  try {
+    return await request.json();
+  } catch {
+    throw new Error('请求内容不是有效的 JSON');
+  }
+}
+
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    const currentDomain = getCookieDomain(url.hostname);
+
+    /*
+     * 登录站点的普通页面请求继续交给源站处理。
+     * /api/ 开头的请求由当前 Worker 处理。
+     */
+    if (
+      url.hostname === 'login.chenyurong.qzz.io' &&
+      !url.pathname.startsWith('/api/')
+    ) {
+      return fetch(request);
+    }
+
+    /*
+     * 1. 用户登录
+     */
+    if (
+      url.pathname === '/api/login' &&
+      request.method === 'POST'
+    ) {
+      try {
+        const {
+          username,
+          password,
+          remember = true
+        } = await readJson(request);
+
+        const cleanUsername = String(username || '').trim();
+        const cleanPassword = String(password || '');
+
+        if (!cleanUsername || !cleanPassword) {
+          return json(
+            {
+              success: false,
+              message: '请输入用户名和密码'
+            },
+            400
+          );
+        }
+
+        const user = await env.DB.prepare(
+          `
+          SELECT username, nickname
+          FROM users
+          WHERE username = ? AND password = ?
+          `
+        )
+          .bind(cleanUsername, cleanPassword)
+          .first();
+
+        if (!user) {
+          return json(
+            {
+              success: false,
+              message: '用户名或密码不正确'
+            },
+            401
+          );
+        }
+
+        const token = crypto.randomUUID();
+        const days = remember ? 30 : 1;
+        const ttl = days * 24 * 60 * 60;
+
+        await env.AUTH_DB.put(
+          `session:${token}`,
+          user.username,
+          {
+            expirationTtl: ttl
+          }
+        );
+
+        const cookie =
+          `auth_token=${encodeURIComponent(token)}; ` +
+          `Path=/; ` +
+          `Domain=${currentDomain}; ` +
+          `Max-Age=${ttl}; ` +
+          `HttpOnly; ` +
+          `Secure; ` +
+          `SameSite=Lax`;
+
+        return json(
+          {
+            success: true,
+            username: user.username,
+            name: user.nickname || user.username
+          },
+          200,
+          {
+            'Set-Cookie': cookie
+          }
+        );
+      } catch (error) {
+        return json(
+          {
+            success: false,
+            message: error.message || '登录失败'
+          },
+          500
+        );
+      }
+    }
+
+    /*
+     * 2. 注册账号
+     *
+     * 需要在 Worker 环境变量中设置：
+     * INVITE_CODE=你的邀请码
+     */
+    if (
+      url.pathname === '/api/register' &&
+      request.method === 'POST'
+    ) {
+      try {
+        const {
+          name,
+          birthday,
+          gender,
+          username,
+          password,
+          invite_code
+        } = await readJson(request);
+
+        const cleanName = String(name || '').trim();
+        const cleanBirthday = String(birthday || '').trim();
+        const cleanGender = String(gender || '').trim();
+        const cleanUsername = String(username || '').trim();
+        const cleanPassword = String(password || '');
+        const cleanInviteCode = String(invite_code || '');
+
+        if (!cleanName) {
+          return json(
+            {
+              success: false,
+              message: '请输入姓名'
+            },
+            400
+          );
+        }
+
+        if (
+          !/^\d{4}-\d{2}-\d{2}$/.test(cleanBirthday)
+        ) {
+          return json(
+            {
+              success: false,
+              message: '生日格式不正确'
+            },
+            400
+          );
+        }
+
+        const birthdayDate = new Date(
+          `${cleanBirthday}T00:00:00`
+        );
+
+        if (
+          Number.isNaN(birthdayDate.getTime()) ||
+          birthdayDate > new Date()
+        ) {
+          return json(
+            {
+              success: false,
+              message: '请输入有效的生日'
+            },
+            400
+          );
+        }
+
+        const allowedGenders = [
+          'male',
+          'female',
+          'custom',
+          'none'
+        ];
+
+        if (!allowedGenders.includes(cleanGender)) {
+          return json(
+            {
+              success: false,
+              message: '请选择性别'
+            },
+            400
+          );
+        }
+
+        if (
+          !/^[A-Za-z0-9._]{3,32}$/.test(cleanUsername)
+        ) {
+          return json(
+            {
+              success: false,
+              message:
+                '用户名需为 3–32 位字母、数字、下划线或句点'
+            },
+            400
+          );
+        }
+
+        if (cleanPassword.length < 8) {
+          return json(
+            {
+              success: false,
+              message: '密码至少需要 8 个字符'
+            },
+            400
+          );
+        }
+
+        if (
+          !env.INVITE_CODE ||
+          cleanInviteCode !== String(env.INVITE_CODE)
+        ) {
+          return json(
+            {
+              success: false,
+              message: '邀请码不正确'
+            },
+            403
+          );
+        }
+
+        const exists = await env.DB.prepare(
+          `
+          SELECT username
+          FROM users
+          WHERE username = ?
+          `
+        )
+          .bind(cleanUsername)
+          .first();
+
+        if (exists) {
+          return json(
+            {
+              success: false,
+              message: '该用户名已被使用'
+            },
+            409
+          );
+        }
+
+        await env.DB.prepare(
+          `
+          INSERT INTO users (
+            username,
+            password,
+            nickname,
+            birthday,
+            gender,
+            avatar,
+            email,
+            bio
+          )
+          VALUES (?, ?, ?, ?, ?, '', '', '')
+          `
+        )
+          .bind(
+            cleanUsername,
+            cleanPassword,
+            cleanName,
+            cleanBirthday,
+            cleanGender
+          )
+          .run();
+
+        return json(
+          {
+            success: true,
+            username: cleanUsername,
+            name: cleanName
+          },
+          201
+        );
+      } catch (error) {
+        return json(
+          {
+            success: false,
+            message: `注册失败：${error.message}`
+          },
+          500
+        );
+      }
+    }
+
+    /*
+     * 3. 忘记密码身份验证
+     *
+     * 前端发送：
+     * {
+     *   username: "用户名",
+     *   name: "姓名"
+     * }
+     */
+    if (
+      url.pathname === '/api/password/verify' &&
+      request.method === 'POST'
+    ) {
+      try {
+        const {
+          username,
+          name
+        } = await readJson(request);
+
+        const cleanUsername = String(username || '').trim();
+        const cleanName = String(name || '').trim();
+
+        if (!cleanUsername || !cleanName) {
+          return json(
+            {
+              success: false,
+              message: '请输入用户名和姓名'
+            },
+            400
+          );
+        }
+
+        const user = await env.DB.prepare(
+          `
+          SELECT username
+          FROM users
+          WHERE username = ? AND nickname = ?
+          `
+        )
+          .bind(cleanUsername, cleanName)
+          .first();
+
+        if (!user) {
+          return json(
+            {
+              success: false,
+              message: '用户名与姓名不匹配'
+            },
+            404
+          );
+        }
+
+        return json({
+          success: true
+        });
+      } catch (error) {
+        return json(
+          {
+            success: false,
+            message: error.message || '验证失败'
+          },
+          500
+        );
+      }
+    }
+
+    /*
+     * 4. 忘记密码后重置密码
+     *
+     * 前端发送：
+     * {
+     *   username: "用户名",
+     *   name: "姓名",
+     *   new_password: "新密码"
+     * }
+     */
+    if (
+      url.pathname === '/api/password/reset' &&
+      request.method === 'POST'
+    ) {
+      try {
+        const {
+          username,
+          name,
+          new_password
+        } = await readJson(request);
+
+        const cleanUsername = String(username || '').trim();
+        const cleanName = String(name || '').trim();
+        const cleanPassword = String(new_password || '');
+
+        if (!cleanUsername || !cleanName) {
+          return json(
+            {
+              success: false,
+              message: '身份信息不完整'
+            },
+            400
+          );
+        }
+
+        if (cleanPassword.length < 8) {
+          return json(
+            {
+              success: false,
+              message: '新密码至少需要 8 个字符'
+            },
+            400
+          );
+        }
+
+        const result = await env.DB.prepare(
+          `
+          UPDATE users
+          SET password = ?
+          WHERE username = ? AND nickname = ?
+          `
+        )
+          .bind(
+            cleanPassword,
+            cleanUsername,
+            cleanName
+          )
+          .run();
+
+        if (!result.meta?.changes) {
+          return json(
+            {
+              success: false,
+              message: '身份信息验证失败'
+            },
+            404
+          );
+        }
+
+        return json({
+          success: true,
+          message: '密码已修改'
+        });
+      } catch (error) {
+        return json(
+          {
+            success: false,
+            message: `密码修改失败：${error.message}`
+          },
+          500
+        );
+      }
+    }
+
+    /*
+     * 5. 获取当前用户资料
+     */
+    if (
+      url.pathname === '/api/userinfo' &&
+      request.method === 'GET'
+    ) {
+      const token = getCookie(request, 'auth_token');
+
+      const username = token
+        ? await env.AUTH_DB.get(`session:${token}`)
+        : null;
+
+      if (username) {
+        const userInfo = await env.DB.prepare(
+          `
+          SELECT
+            username,
+            nickname,
+            avatar,
+            email,
+            bio,
+            birthday,
+            gender
+          FROM users
+          WHERE username = ?
+          `
+        )
+          .bind(username)
+          .first();
+
+        if (userInfo) {
+          return json({
+            loggedIn: true,
+            data: userInfo
+          });
+        }
+      }
+
+      return json({
+        loggedIn: false
+      });
+    }
+
+    /*
+     * 6. 修改个人资料
+     */
+    if (
+      url.pathname === '/api/user/update' &&
+      request.method === 'POST'
+    ) {
+      const token = getCookie(request, 'auth_token');
+
+      if (!token) {
+        return json(
+          {
+            success: false,
+            message: '未登录'
+          },
+          401
+        );
+      }
+
+      const username = await env.AUTH_DB.get(
+        `session:${token}`
+      );
+
+      if (!username) {
+        return json(
+          {
+            success: false,
+            message: '登录已过期'
+          },
+          401
+        );
+      }
+
+      try {
+        const body = await readJson(request);
+
+        const current = await env.DB.prepare(
+          `
+          SELECT nickname, avatar, email, bio
+          FROM users
+          WHERE username = ?
+          `
+        )
+          .bind(username)
+          .first();
+
+        if (!current) {
+          return json(
+            {
+              success: false,
+              message: '用户不存在'
+            },
+            404
+          );
+        }
+
+        const finalNickname =
+          body.nickname !== undefined
+            ? String(body.nickname)
+            : current.nickname;
+
+        const finalAvatar =
+          body.avatar !== undefined
+            ? String(body.avatar)
+            : current.avatar;
+
+        const finalEmail =
+          body.email !== undefined
+            ? String(body.email)
+            : current.email;
+
+        const finalBio =
+          body.bio !== undefined
+            ? String(body.bio)
+            : current.bio;
+
+        await env.DB.prepare(
+          `
+          UPDATE users
+          SET
+            nickname = ?,
+            avatar = ?,
+            email = ?,
+            bio = ?
+          WHERE username = ?
+          `
+        )
+          .bind(
+            finalNickname,
+            finalAvatar,
+            finalEmail,
+            finalBio,
+            username
+          )
+          .run();
+
+        return json({
+          success: true,
+          message: '资料更新成功'
+        });
+      } catch (error) {
+        return json(
+          {
+            success: false,
+            message: `更新失败：${error.message}`
+          },
+          500
+        );
+      }
+    }
+
+    /*
+     * 7. 已登录用户修改密码
+     */
+    if (
+      url.pathname === '/api/user/change-password' &&
+      request.method === 'POST'
+    ) {
+      const token = getCookie(request, 'auth_token');
+
+      if (!token) {
+        return json(
+          {
+            success: false,
+            message: '未登录'
+          },
+          401
+        );
+      }
+
+      const username = await env.AUTH_DB.get(
+        `session:${token}`
+      );
+
+      if (!username) {
+        return json(
+          {
+            success: false,
+            message: '登录已过期'
+          },
+          401
+        );
+      }
+
+      try {
+        const {
+          current_password,
+          new_password
+        } = await readJson(request);
+
+        const currentPassword =
+          String(current_password || '');
+
+        const newPassword =
+          String(new_password || '');
+
+        if (!currentPassword) {
+          return json(
+            {
+              success: false,
+              message: '请输入当前密码'
+            },
+            400
+          );
+        }
+
+        if (newPassword.length < 8) {
+          return json(
+            {
+              success: false,
+              message: '新密码至少需要 8 个字符'
+            },
+            400
+          );
+        }
+
+        const user = await env.DB.prepare(
+          `
+          SELECT username
+          FROM users
+          WHERE username = ? AND password = ?
+          `
+        )
+          .bind(username, currentPassword)
+          .first();
+
+        if (!user) {
+          return json(
+            {
+              success: false,
+              message: '当前密码错误'
+            },
+            400
+          );
+        }
+
+        await env.DB.prepare(
+          `
+          UPDATE users
+          SET password = ?
+          WHERE username = ?
+          `
+        )
+          .bind(newPassword, username)
+          .run();
+
+        return json({
+          success: true,
+          message: '密码已成功更新'
+        });
+      } catch (error) {
+        return json(
+          {
+            success: false,
+            message: `密码更新失败：${error.message}`
+          },
+          500
+        );
+      }
+    }
+
+    /*
+     * 8. SSO 检查
+     *
+     * 新域名没有 Cookie 时，先跳转到登录域名进行检查。
+     */
+    if (
+      url.pathname === '/api/sso-check' &&
+      request.method === 'GET'
+    ) {
+      const from = url.searchParams.get('from');
+      const target = safeTarget(from, LOGIN_PAGE);
+
+      const token = getCookie(request, 'auth_token');
+
+      const username = token
+        ? await env.AUTH_DB.get(`session:${token}`)
+        : null;
+
+      if (username) {
+        target.searchParams.set('sso_token', token);
+
+        return Response.redirect(
+          target.toString(),
+          302
+        );
+      }
+
+      return Response.redirect(
+        loginUrl(target.toString()),
+        302
+      );
+    }
+
+    /*
+     * 9. 接收 SSO Token
+     *
+     * 在目标根域名下重新设置 Cookie，
+     * 然后从地址栏中删除 sso_token。
+     */
+    const ssoToken = url.searchParams.get('sso_token');
+
+    if (ssoToken) {
+      const username = await env.AUTH_DB.get(
+        `session:${ssoToken}`
+      );
+
+      if (username) {
+        const cleanUrl = new URL(request.url);
+        cleanUrl.searchParams.delete('sso_token');
+
+        const ttl = 30 * 24 * 60 * 60;
+
+        const cookie =
+          `auth_token=${encodeURIComponent(ssoToken)}; ` +
+          `Path=/; ` +
+          `Domain=${currentDomain}; ` +
+          `Max-Age=${ttl}; ` +
+          `HttpOnly; ` +
+          `Secure; ` +
+          `SameSite=Lax`;
+
+        return new Response(null, {
+          status: 302,
+          headers: {
+            Location: cleanUrl.toString(),
+            'Set-Cookie': cookie
+          }
+        });
+      }
+    }
+
+    /*
+     * 10. 原有登录拦截器逻辑
+     */
+    const token = getCookie(request, 'auth_token');
+
+    const username = token
+      ? await env.AUTH_DB.get(`session:${token}`)
+      : null;
+
+    if (!username) {
+      /*
+       * API 请求未登录时返回 JSON，
+       * 不重定向到登录页面。
+       */
+      if (url.pathname.startsWith('/api/')) {
+        return json(
+          {
+            success: false,
+            message: 'Unauthorized'
+          },
+          401
+        );
+      }
+
+      /*
+       * dpdns.org 域名先通过 SSO 检查接口探测登录状态。
+       */
+      if (
+        url.hostname === 'cyr.dpdns.org' ||
+        url.hostname.endsWith('.cyr.dpdns.org')
+      ) {
+        return Response.redirect(
+          `${LOGIN_PAGE}/api/sso-check?from=${encodeURIComponent(
+            request.url
+          )}`,
+          302
+        );
+      }
+
+      /*
+       * chenyurong.qzz.io 域名直接跳转登录页。
+       */
+      return Response.redirect(
+        loginUrl(request.url),
+        302
+      );
+    }
+
+    /*
+     * 已登录，继续请求原始网站。
+     */
+    return fetch(request);
+  }
+};

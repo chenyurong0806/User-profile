@@ -43,7 +43,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* ========== 顶部导航栏 ========== */
+/* ========== 椤堕儴瀵艰埅鏍� ========== */
 .top-nav {
     background: var(--bg-card);
     border-bottom: 1px solid var(--border-color);
@@ -137,14 +137,14 @@ body {
     border-color: var(--border-color);
 }
 
-/* ========== 主容器 ========== */
+/* ========== 涓诲鍣� ========== */
 .main-container {
     max-width: 720px;
     margin: 0 auto;
     padding: 32px 24px 60px;
 }
 
-/* ========== 页面标题区 ========== */
+/* ========== 椤甸潰鏍囬鍖� ========== */
 .page-header {
     margin-bottom: 28px;
 }
@@ -165,7 +165,7 @@ body {
     font-weight: 400;
 }
 
-/* ========== 头像区域卡片 ========== */
+/* ========== 澶村儚鍖哄煙鍗＄墖 ========== */
 .profile-hero-card {
     background: var(--bg-card);
     border-radius: var(--radius-lg);
@@ -282,7 +282,7 @@ body {
     justify-content: center;
 }
 
-/* ========== 通用卡片样式 ========== */
+/* ========== 閫氱敤鍗＄墖鏍峰紡 ========== */
 .info-card {
     background: var(--bg-card);
     border-radius: var(--radius-lg);
@@ -382,7 +382,7 @@ body {
     flex-shrink: 0;
 }
 
-/* 危险操作按钮 */
+/* 鍗遍櫓鎿嶄綔鎸夐挳 */
 .card-section .edit-btn.danger-btn {
     color: var(--accent-red);
     border-color: transparent;
@@ -396,7 +396,7 @@ body {
     color: var(--accent-red-hover);
 }
 
-/* ========== 模态框 ========== */
+/* ========== 妯℃€佹 ========== */
 .modal-backdrop {
     position: fixed;
     inset: 0;
@@ -527,7 +527,7 @@ body {
     border-top: 1px solid var(--border-color);
 }
 
-/* ========== 表单元素 ========== */
+/* ========== 琛ㄥ崟鍏冪礌 ========== */
 .form-group {
     margin-bottom: 18px;
 }
@@ -546,7 +546,8 @@ body {
 }
 
 .form-input,
-.form-textarea {
+.form-textarea,
+.form-select {
     width: 100%;
     padding: 12px 14px;
     font-size: 15px;
@@ -561,14 +562,16 @@ body {
 }
 
 .form-input:focus,
-.form-textarea:focus {
+.form-textarea:focus,
+.form-select:focus {
     border-color: var(--accent-blue);
     box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.12);
     background: #fff;
 }
 
 .form-input.error,
-.form-textarea.error {
+.form-textarea.error,
+.form-select.error {
     border-color: var(--accent-red);
     box-shadow: 0 0 0 3px rgba(217, 48, 37, 0.1);
 }
@@ -597,7 +600,7 @@ body {
     margin-top: 4px;
 }
 
-/* 密码强度指示器 */
+/* 瀵嗙爜寮哄害鎸囩ず鍣� */
 .password-strength {
     height: 4px;
     border-radius: 2px;
@@ -633,7 +636,7 @@ body {
     background: #34a853;
 }
 
-/* ========== 按钮 ========== */
+/* ========== 鎸夐挳 ========== */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -733,7 +736,7 @@ body {
     }
 }
 
-/* ========== Toast 通知 ========== */
+/* ========== Toast 閫氱煡 ========== */
 .toast-container {
     position: fixed;
     bottom: 28px;
@@ -807,7 +810,7 @@ body {
     }
 }
 
-/* ========== 隐藏文件输入 ========== */
+/* ========== 闅愯棌鏂囦欢杈撳叆 ========== */
 .hidden-file-input {
     position: absolute;
     width: 0;
@@ -816,7 +819,7 @@ body {
     pointer-events: none;
 }
 
-/* ========== 响应式 ========== */
+/* ========== 鍝嶅簲寮� ========== */
 @media (max-width: 600px) {
     .main-container {
         padding: 20px 16px 48px;
@@ -824,7 +827,7 @@ body {
 
     .profile-hero-card {
         padding: 28px 20px 24px;
-        border-radius: var-radius-md;
+        border-radius: var(--radius-md);
     }
 
     .avatar-wrapper {
@@ -920,4 +923,33 @@ body {
     .modal-header h2 {
         font-size: 16px;
     }
+}
+
+/* 鐢熸棩涓庢€у埆缂栬緫鎺т欢 */
+.form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-right: 44px;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--text-secondary);
+    border-bottom: 2px solid var(--text-secondary);
+    transform: translateY(-70%) rotate(45deg);
+    pointer-events: none;
+}
+
+input[type="date"].form-input {
+    min-height: 46px;
 }
