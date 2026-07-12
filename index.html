@@ -3,141 +3,54 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Orange 账号 - 个人资料</title>
+    <title>Orange Accounts</title>
 
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
 
-    <link
-        rel="stylesheet"
-        href="styles.css"
-    >
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
     <!-- 顶部导航栏 -->
     <nav class="top-nav">
-        <a
-            href="/"
-            class="brand"
-            aria-label="Orange 账号"
-        >
-            <svg
-                class="brand-icon"
-                viewBox="0 0 64 64"
-                aria-hidden="true"
-            >
+        <a href="/" class="brand" aria-label="Orange 账号">
+            <svg class="brand-icon" viewBox="0 0 64 64" aria-hidden="true">
                 <defs>
-                    <radialGradient
-                        id="orangeBody"
-                        cx="32%"
-                        cy="25%"
-                        r="80%"
-                    >
-                        <stop
-                            offset="0%"
-                            stop-color="#ffca55"
-                        />
-                        <stop
-                            offset="52%"
-                            stop-color="#ff9800"
-                        />
-                        <stop
-                            offset="100%"
-                            stop-color="#ed6c02"
-                        />
+                    <radialGradient id="orangeBody" cx="32%" cy="25%" r="80%">
+                        <stop offset="0%" stop-color="#ffca55" />
+                        <stop offset="52%" stop-color="#ff9800" />
+                        <stop offset="100%" stop-color="#ed6c02" />
                     </radialGradient>
 
-                    <linearGradient
-                        id="orangeLeaf"
-                        x1="0"
-                        y1="0"
-                        x2="1"
-                        y2="1"
-                    >
-                        <stop
-                            offset="0%"
-                            stop-color="#66bb6a"
-                        />
-                        <stop
-                            offset="100%"
-                            stop-color="#2e7d32"
-                        />
+                    <linearGradient id="orangeLeaf" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#66bb6a" />
+                        <stop offset="100%" stop-color="#2e7d32" />
                     </linearGradient>
                 </defs>
 
-                <path
-                    d="M32 16c-1.6-6.2.1-10.6 4.9-13"
-                    fill="none"
-                    stroke="#6d4c41"
-                    stroke-width="4"
-                    stroke-linecap="round"
-                />
+                <path d="M32 16c-1.6-6.2.1-10.6 4.9-13" fill="none" stroke="#6d4c41" stroke-width="4"
+                    stroke-linecap="round" />
 
-                <path
-                    d="M34.5 10.5C39 3.8 48.2 3 55 7.7 50.2 14.8 41.7 17 34.5 10.5Z"
-                    fill="url(#orangeLeaf)"
-                />
+                <path d="M34.5 10.5C39 3.8 48.2 3 55 7.7 50.2 14.8 41.7 17 34.5 10.5Z" fill="url(#orangeLeaf)" />
 
-                <circle
-                    cx="31.5"
-                    cy="35"
-                    r="23"
-                    fill="url(#orangeBody)"
-                />
+                <circle cx="31.5" cy="35" r="23" fill="url(#orangeBody)" />
 
-                <ellipse
-                    cx="23"
-                    cy="25"
-                    rx="6"
-                    ry="8"
-                    fill="#ffffff"
-                    opacity="0.3"
-                    transform="rotate(30 23 25)"
-                />
+                <ellipse cx="23" cy="25" rx="6" ry="8" fill="#ffffff" opacity="0.3" transform="rotate(30 23 25)" />
 
-                <circle
-                    cx="21"
-                    cy="43"
-                    r="1.3"
-                    fill="#d95e00"
-                    opacity="0.45"
-                />
+                <circle cx="21" cy="43" r="1.3" fill="#d95e00" opacity="0.45" />
 
-                <circle
-                    cx="39"
-                    cy="47"
-                    r="1.1"
-                    fill="#d95e00"
-                    opacity="0.4"
-                />
+                <circle cx="39" cy="47" r="1.1" fill="#d95e00" opacity="0.4" />
 
-                <circle
-                    cx="45"
-                    cy="34"
-                    r="1.1"
-                    fill="#d95e00"
-                    opacity="0.4"
-                />
+                <circle cx="45" cy="34" r="1.1" fill="#d95e00" opacity="0.4" />
             </svg>
 
             <span class="brand-name">Orange 账号</span>
@@ -145,13 +58,7 @@
 
         <div class="nav-spacer"></div>
 
-        <button
-            type="button"
-            class="nav-avatar-sm"
-            id="navAvatarSmall"
-            title="个人资料"
-            aria-label="个人资料"
-        >
+        <button type="button" class="nav-avatar-sm" id="navAvatarSmall" title="个人资料" aria-label="个人资料">
             U
         </button>
     </nav>
@@ -168,907 +75,1836 @@
 
         <!-- 用户头像 -->
         <section class="profile-hero-card">
-            <button
-                type="button"
-                class="avatar-wrapper"
-                id="avatarWrapper"
-                title="点击更换头像"
-                aria-label="更换头像"
-            >
-                <img
-                    class="avatar-image"
-                    id="avatarImage"
-                    src=""
-                    alt="用户头像"
-                    hidden
-                >
+            <button type="button" class="avatar-wrapper" id="avatarWrapper" title="点击更换头像" aria-label="更换头像">
+                <img class="avatar-image" id="avatarImage" src="" alt="用户头像" hidden>
 
-                <span
-                    class="avatar-placeholder color-2"
-                    id="avatarPlaceholder"
-                >
+                <span class="avatar-placeholder color-2" id="avatarPlaceholder">
                     U
                 </span>
 
                 <span class="avatar-overlay">
-                    <svg
-                        class="camera-icon"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
+                    <svg class="camera-icon" viewBox="0 0 24 24" aria-hidden="true">
                         <path
-                            d="M12 15.5A3.5 3.5 0.io')
-  ) {
-    return '.chenyurong.qzz.io';
-  }
-
-  return hostname;
-}
-
-function safeTarget(raw, fallback) {
-  try {
-    const target = new URL(raw || fallback);
-
-    if (
-      target.protocol === 'http:' ||
-      target.protocol === 'https:'
-    ) {
-      return target;
-    }
-
-    return new URL(fallback);
-  } catch {
-    return new URL(fallback);
-  }
-}
-
-function loginUrl(from) {
-  const target = safeTarget(from, LOGIN_PAGE);
-  const login = new URL(LOGIN_PAGE);
-
-  login.searchParams.set('from', target.toString());
-  login.searchParams.set('site', target.hostname);
-  login.searchParams.set(
-    'icon',
-    `${target.origin}/favicon.ico`
-  );
-
-  return login.toString();
-}
-
-async function readJson(request) {
-  try {
-    return await request.json();
-  } catch {
-    throw new Error('请求内容不是有效的 JSON');
-  }
-}
-
-export default {
-  async fetch(request, env, ctx) {
-    const url = new URL(request.url);
-    const currentDomain = getCookieDomain(url.hostname);
-
-    /*
-     * 登录站点的普通页面请求继续交给源站处理。
-     * /api/ 开头的请求由当前 Worker 处理。
-     */
-    if (
-      url.hostname === 'login.chenyurong.qzz.io' &&
-      !url.pathname.startsWith('/api/')
-    ) {
-      return fetch(request);
-    }
-
-    /*
-     * 1. 用户登录
-     */
-    if (
-      url.pathname === '/api/login' &&
-      request.method === 'POST'
-    ) {
-      try {
-        const {
-          username,
-          password,
-          remember = true
-        } = await readJson(request);
-
-        const cleanUsername = String(username || '').trim();
-        const cleanPassword = String(password || '');
-
-        if (!cleanUsername || !cleanPassword) {
-          return json(
-            {
-              success: false,
-              message: '请输入用户名和密码'
-            },
-            400
-          );
-        }
-
-        const user = await env.DB.prepare(
-          `
-          SELECT username, nickname
-          FROM users
-          WHERE username = ? AND password = ?
-          `
-        )
-          .bind(cleanUsername, cleanPassword)
-          .first();
-
-        if (!user) {
-          return json(
-            {
-              success: false,
-              message: '用户名或密码不正确'
-            },
-            401
-          );
-        }
-
-        const token = crypto.randomUUID();
-        const days = remember ? 30 : 1;
-        const ttl = days * 24 * 60 * 60;
-
-        await env.AUTH_DB.put(
-          `session:${token}`,
-          user.username,
-          {
-            expirationTtl: ttl
-          }
-        );
-
-        const cookie =
-          `auth_token=${encodeURIComponent(token)}; ` +
-          `Path=/; ` +
-          `Domain=${currentDomain}; ` +
-          `Max-Age=${ttl}; ` +
-          `HttpOnly; ` +
-          `Secure; ` +
-          `SameSite=Lax`;
-
-        return json(
-          {
-            success: true,
-            username: user.username,
-            name: user.nickname || user.username
-          },
-          200,
-          {
-            'Set-Cookie': cookie
-          }
-        );
-      } catch (error) {
-        return json(
-          {
-            success: false,
-            message: error.message || '登录失败'
-          },
-          500
-        );
-      }
-    }
-
-    /*
-     * 2. 注册账号
-     *
-     * 需要在 Worker 环境变量中设置：
-     * INVITE_CODE=你的邀请码
-     */
-    if (
-      url.pathname === '/api/register' &&
-      request.method === 'POST'
-    ) {
-      try {
-        const {
-          name,
-          birthday,
-          gender,
-          username,
-          password,
-          invite_code
-        } = await readJson(request);
-
-        const cleanName = String(name || '').trim();
-        const cleanBirthday = String(birthday || '').trim();
-        const cleanGender = String(gender || '').trim();
-        const cleanUsername = String(username || '').trim();
-        const cleanPassword = String(password || '');
-        const cleanInviteCode = String(invite_code || '');
-
-        if (!cleanName) {
-          return json(
-            {
-              success: false,
-              message: '请输入姓名'
-            },
-            400
-          );
-        }
-
-        if (
-          !/^\d{4}-\d{2}-\d{2}$/.test(cleanBirthday)
-        ) {
-          return json(
-            {
-              success: false,
-              message: '生日格式不正确'
-            },
-            400
-          );
-        }
-
-        const birthdayDate = new Date(
-          `${cleanBirthday}T00:00:00`
-        );
-
-        if (
-          Number.isNaN(birthdayDate.getTime()) ||
-          birthdayDate > new Date()
-        ) {
-          return json(
-            {
-              success: false,
-              message: '请输入有效的生日'
-            },
-            400
-          );
-        }
-
-        const allowedGenders = [
-          'male',
-          'female',
-          'custom',
-          'none'
-        ];
-
-        if (!allowedGenders.includes(cleanGender)) {
-          return json(
-            {
-              success: false,
-              message: '请选择性别'
-            },
-            400
-          );
-        }
-
-        if (
-          !/^[A-Za-z0-9._]{3,32}$/.test(cleanUsername)
-        ) {
-          return json(
-            {
-              success: false,
-              message:
-                '用户名需为 3–32 位字母、数字、下划线或句点'
-            },
-            400
-          );
-        }
-
-        if (cleanPassword.length < 8) {
-          return json(
-            {
-              success: false,
-              message: '密码至少需要 8 个字符'
-            },
-            400
-          );
-        }
-
-        if (
-          !env.INVITE_CODE ||
-          cleanInviteCode !== String(env.INVITE_CODE)
-        ) {
-          return json(
-            {
-              success: false,
-              message: '邀请码不正确'
-            },
-            403
-          );
-        }
-
-        const exists = await env.DB.prepare(
-          `
-          SELECT username
-          FROM users
-          WHERE username = ?
-          `
-        )
-          .bind(cleanUsername)
-          .first();
-
-        if (exists) {
-          return json(
-            {
-              success: false,
-              message: '该用户名已被使用'
-            },
-            409
-          );
-        }
-
-        await env.DB.prepare(
-          `
-          INSERT INTO users (
-            username,
-            password,
-            nickname,
-            birthday,
-            gender,
-            avatar,
-            email,
-            bio
-          )
-          VALUES (?, ?, ?, ?, ?, '', '', '')
-          `
-        )
-          .bind(
-            cleanUsername,
-            cleanPassword,
-            cleanName,
-            cleanBirthday,
-            cleanGender
-          )
-          .run();
-
-        return json(
-          {
-            success: true,
-            username: cleanUsername,
-            name: cleanName
-          },
-          201
-        );
-      } catch (error) {
-        return json(
-          {
-            success: false,
-            message: `注册失败：${error.message}`
-          },
-          500
-        );
-      }
-    }
-
-    /*
-     * 3. 忘记密码身份验证
-     *
-     * 前端发送：
-     * {
-     *   username: "用户名",
-     *   name: "姓名"
-     * }
-     */
-    if (
-      url.pathname === '/api/password/verify' &&
-      request.method === 'POST'
-    ) {
-      try {
-        const {
-          username,
-          name
-        } = await readJson(request);
-
-        const cleanUsername = String(username || '').trim();
-        const cleanName = String(name || '').trim();
-
-        if (!cleanUsername || !cleanName) {
-          return json(
-            {
-              success: false,
-              message: '请输入用户名和姓名'
-            },
-            400
-          );
-        }
-
-        const user = await env.DB.prepare(
-          `
-          SELECT username
-          FROM users
-          WHERE username = ? AND nickname = ?
-          `
-        )
-          .bind(cleanUsername, cleanName)
-          .first();
-
-        if (!user) {
-          return json(
-            {
-              success: false,
-              message: '用户名与姓名不匹配'
-            },
-            404
-          );
-        }
-
-        return json({
-          success: true
-        });
-      } catch (error) {
-        return json(
-          {
-            success: false,
-            message: error.message || '验证失败'
-          },
-          500
-        );
-      }
-    }
-
-    /*
-     * 4. 忘记密码后重置密码
-     *
-     * 前端发送：
-     * {
-     *   username: "用户名",
-     *   name: "姓名",
-     *   new_password: "新密码"
-     * }
-     */
-    if (
-      url.pathname === '/api/password/reset' &&
-      request.method === 'POST'
-    ) {
-      try {
-        const {
-          username,
-          name,
-          new_password
-        } = await readJson(request);
-
-        const cleanUsername = String(username || '').trim();
-        const cleanName = String(name || '').trim();
-        const cleanPassword = String(new_password || '');
-
-        if (!cleanUsername || !cleanName) {
-          return json(
-            {
-              success: false,
-              message: '身份信息不完整'
-            },
-            400
-          );
-        }
-
-        if (cleanPassword.length < 8) {
-          return json(
-            {
-              success: false,
-              message: '新密码至少需要 8 个字符'
-            },
-            400
-          );
-        }
-
-        const result = await env.DB.prepare(
-          `
-          UPDATE users
-          SET password = ?
-          WHERE username = ? AND nickname = ?
-          `
-        )
-          .bind(
-            cleanPassword,
-            cleanUsername,
-            cleanName
-          )
-          .run();
-
-        if (!result.meta?.changes) {
-          return json(
-            {
-              success: false,
-              message: '身份信息验证失败'
-            },
-            404
-          );
-        }
-
-        return json({
-          success: true,
-          message: '密码已修改'
-        });
-      } catch (error) {
-        return json(
-          {
-            success: false,
-            message: `密码修改失败：${error.message}`
-          },
-          500
-        );
-      }
-    }
-
-    /*
-     * 5. 获取当前用户资料
-     */
-    if (
-      url.pathname === '/api/userinfo' &&
-      request.method === 'GET'
-    ) {
-      const token = getCookie(request, 'auth_token');
-
-      const username = token
-        ? await env.AUTH_DB.get(`session:${token}`)
-        : null;
-
-      if (username) {
-        const userInfo = await env.DB.prepare(
-          `
-          SELECT
-            username,
-            nickname,
-            avatar,
-            email,
-            bio,
-            birthday,
-            gender
-          FROM users
-          WHERE username = ?
-          `
-        )
-          .bind(username)
-          .first();
-
-        if (userInfo) {
-          return json({
-            loggedIn: true,
-            data: userInfo
-          });
-        }
-      }
-
-      return json({
-        loggedIn: false
-      });
-    }
-
-    /*
-     * 6. 修改个人资料
-     */
-    if (
-      url.pathname === '/api/user/update' &&
-      request.method === 'POST'
-    ) {
-      const token = getCookie(request, 'auth_token');
-
-      if (!token) {
-        return json(
-          {
-            success: false,
-            message: '未登录'
-          },
-          401
-        );
-      }
-
-      const username = await env.AUTH_DB.get(
-        `session:${token}`
-      );
-
-      if (!username) {
-        return json(
-          {
-            success: false,
-            message: '登录已过期'
-          },
-          401
-        );
-      }
-
-      try {
-        const body = await readJson(request);
-
-        const current = await env.DB.prepare(
-          `
-          SELECT nickname, avatar, email, bio
-          FROM users
-          WHERE username = ?
-          `
-        )
-          .bind(username)
-          .first();
-
-        if (!current) {
-          return json(
-            {
-              success: false,
-              message: '用户不存在'
-            },
-            404
-          );
-        }
-
-        const finalNickname =
-          body.nickname !== undefined
-            ? String(body.nickname)
-            : current.nickname;
-
-        const finalAvatar =
-          body.avatar !== undefined
-            ? String(body.avatar)
-            : current.avatar;
-
-        const finalEmail =
-          body.email !== undefined
-            ? String(body.email)
-            : current.email;
-
-        const finalBio =
-          body.bio !== undefined
-            ? String(body.bio)
-            : current.bio;
-
-        await env.DB.prepare(
-          `
-          UPDATE users
-          SET
-            nickname = ?,
-            avatar = ?,
-            email = ?,
-            bio = ?
-          WHERE username = ?
-          `
-        )
-          .bind(
-            finalNickname,
-            finalAvatar,
-            finalEmail,
-            finalBio,
-            username
-          )
-          .run();
-
-        return json({
-          success: true,
-          message: '资料更新成功'
-        });
-      } catch (error) {
-        return json(
-          {
-            success: false,
-            message: `更新失败：${error.message}`
-          },
-          500
-        );
-      }
-    }
-
-    /*
-     * 7. 已登录用户修改密码
-     */
-    if (
-      url.pathname === '/api/user/change-password' &&
-      request.method === 'POST'
-    ) {
-      const token = getCookie(request, 'auth_token');
-
-      if (!token) {
-        return json(
-          {
-            success: false,
-            message: '未登录'
-          },
-          401
-        );
-      }
-
-      const username = await env.AUTH_DB.get(
-        `session:${token}`
-      );
-
-      if (!username) {
-        return json(
-          {
-            success: false,
-            message: '登录已过期'
-          },
-          401
-        );
-      }
-
-      try {
-        const {
-          current_password,
-          new_password
-        } = await readJson(request);
-
-        const currentPassword =
-          String(current_password || '');
-
-        const newPassword =
-          String(new_password || '');
-
-        if (!currentPassword) {
-          return json(
-            {
-              success: false,
-              message: '请输入当前密码'
-            },
-            400
-          );
-        }
-
-        if (newPassword.length < 8) {
-          return json(
-            {
-              success: false,
-              message: '新密码至少需要 8 个字符'
-            },
-            400
-          );
-        }
-
-        const user = await env.DB.prepare(
-          `
-          SELECT username
-          FROM users
-          WHERE username = ? AND password = ?
-          `
-        )
-          .bind(username, currentPassword)
-          .first();
-
-        if (!user) {
-          return json(
-            {
-              success: false,
-              message: '当前密码错误'
-            },
-            400
-          );
-        }
-
-        await env.DB.prepare(
-          `
-          UPDATE users
-          SET password = ?
-          WHERE username = ?
-          `
-        )
-          .bind(newPassword, username)
-          .run();
-
-        return json({
-          success: true,
-          message: '密码已成功更新'
-        });
-      } catch (error) {
-        return json(
-          {
-            success: false,
-            message: `密码更新失败：${error.message}`
-          },
-          500
-        );
-      }
-    }
-
-    /*
-     * 8. SSO 检查
-     *
-     * 新域名没有 Cookie 时，先跳转到登录域名进行检查。
-     */
-    if (
-      url.pathname === '/api/sso-check' &&
-      request.method === 'GET'
-    ) {
-      const from = url.searchParams.get('from');
-      const target = safeTarget(from, LOGIN_PAGE);
-
-      const token = getCookie(request, 'auth_token');
-
-      const username = token
-        ? await env.AUTH_DB.get(`session:${token}`)
-        : null;
-
-      if (username) {
-        target.searchParams.set('sso_token', token);
-
-        return Response.redirect(
-          target.toString(),
-          302
-        );
-      }
-
-      return Response.redirect(
-        loginUrl(target.toString()),
-        302
-      );
-    }
-
-    /*
-     * 9. 接收 SSO Token
-     *
-     * 在目标根域名下重新设置 Cookie，
-     * 然后从地址栏中删除 sso_token。
-     */
-    const ssoToken = url.searchParams.get('sso_token');
-
-    if (ssoToken) {
-      const username = await env.AUTH_DB.get(
-        `session:${ssoToken}`
-      );
-
-      if (username) {
-        const cleanUrl = new URL(request.url);
-        cleanUrl.searchParams.delete('sso_token');
-
-        const ttl = 30 * 24 * 60 * 60;
-
-        const cookie =
-          `auth_token=${encodeURIComponent(ssoToken)}; ` +
-          `Path=/; ` +
-          `Domain=${currentDomain}; ` +
-          `Max-Age=${ttl}; ` +
-          `HttpOnly; ` +
-          `Secure; ` +
-          `SameSite=Lax`;
-
-        return new Response(null, {
-          status: 302,
-          headers: {
-            Location: cleanUrl.toString(),
-            'Set-Cookie': cookie
-          }
-        });
-      }
-    }
-
-    /*
-     * 10. 原有登录拦截器逻辑
-     */
-    const token = getCookie(request, 'auth_token');
-
-    const username = token
-      ? await env.AUTH_DB.get(`session:${token}`)
-      : null;
-
-    if (!username) {
-      /*
-       * API 请求未登录时返回 JSON，
-       * 不重定向到登录页面。
-       */
-      if (url.pathname.startsWith('/api/')) {
-        return json(
-          {
-            success: false,
-            message: 'Unauthorized'
-          },
-          401
-        );
-      }
-
-      /*
-       * dpdns.org 域名先通过 SSO 检查接口探测登录状态。
-       */
-      if (
-        url.hostname === 'cyr.dpdns.org' ||
-        url.hostname.endsWith('.cyr.dpdns.org')
-      ) {
-        return Response.redirect(
-          `${LOGIN_PAGE}/api/sso-check?from=${encodeURIComponent(
-            request.url
-          )}`,
-          302
-        );
-      }
-
-      /*
-       * chenyurong.qzz.io 域名直接跳转登录页。
-       */
-      return Response.redirect(
-        loginUrl(request.url),
-        302
-      );
-    }
-
-    /*
-     * 已登录，继续请求原始网站。
-     */
-    return fetch(request);
-  }
-};
+                            d="M12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Zm0-5A1.5 1.5 0 1 0 12 13a1.5 1.5 0 0 0 0-3Z" />
+
+                        <path
+                            d="M20 5h-3.17l-1.24-1.35A2 2 0 0 0 14.12 3H9.88a2 2 0 0 0-1.48.65L7.17 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 14H4V7h3.17a2 2 0 0 0 1.48-.65L9.88 5h4.24l1.24 1.35a2 2 0 0 0 1.48.65H20v12Z" />
+                    </svg>
+                </span>
+            </button>
+
+            <input type="file" class="hidden-file-input" id="avatarFileInput"
+                accept="image/png,image/jpeg,image/webp,image/gif">
+
+            <div class="profile-username-display" id="usernameDisplay">
+                用户名
+            </div>
+
+            <div class="profile-name-display" id="heroNickname">
+                用户昵称
+            </div>
+        </section>
+
+        <!-- 基本信息 -->
+        <section class="section-block">
+            <div class="section-heading">
+                <h2>基本信息</h2>
+                <p>部分网站可能会读取你的个人信息</p>
+            </div>
+
+            <div class="info-card">
+
+                <!-- 姓名 / 昵称 -->
+                <button type="button" class="card-section editable" id="nicknameSection">
+                    <span class="section-info">
+                        <span class="section-label">姓名</span>
+
+                        <span class="section-value" id="nicknameValue">
+                            用户昵称
+                        </span>
+                    </span>
+
+                    <span class="edit-btn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm17.71-10.21a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83Z" />
+                        </svg>
+
+                        编辑
+                    </span>
+                </button>
+
+                <!-- 用户名 -->
+                <div class="card-section">
+                    <span class="section-info">
+                        <span class="section-label">用户名</span>
+
+                        <span class="section-value" id="accountUsernameValue">
+                            用户名
+                        </span>
+                    </span>
+
+                    <span class="read-only-tag">不可修改</span>
+                </div>
+
+                <!-- 生日 -->
+                <button type="button" class="card-section editable" id="birthdaySection">
+                    <span class="section-info">
+                        <span class="section-label">生日</span>
+
+                        <span class="section-value placeholder-text" id="birthdayValue">
+                            尚未设置生日
+                        </span>
+                    </span>
+
+                    <span class="edit-btn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V9h14v11ZM7 11h5v5H7v-5Z" />
+                        </svg>
+
+                        编辑
+                    </span>
+                </button>
+
+                <!-- 性别 -->
+                <button type="button" class="card-section editable" id="genderSection">
+                    <span class="section-info">
+                        <span class="section-label">性别</span>
+
+                        <span class="section-value placeholder-text" id="genderValue">
+                            尚未设置性别
+                        </span>
+                    </span>
+
+                    <span class="edit-btn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 2a5 5 0 0 0-1 9.9V14H8v2h3v3H8v2h3v3h2v-3h3v-2h-3v-3h3v-2h-3v-2.1A5 5 0 0 0 12 2Zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+                        </svg>
+
+                        编辑
+                    </span>
+                </button>
+
+                <!-- 简介 -->
+                <button type="button" class="card-section editable" id="bioSection">
+                    <span class="section-info">
+                        <span class="section-label">简介</span>
+
+                        <span class="section-value placeholder-text" id="bioValue">
+                            尚未设置简介
+                        </span>
+                    </span>
+
+                    <span class="edit-btn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm17.71-10.21a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83Z" />
+                        </svg>
+
+                        编辑
+                    </span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 安全设置 -->
+        <section class="section-block">
+            <div class="section-heading">
+                <h2>安全设置</h2>
+                <p>保护您的 Orange 账号</p>
+            </div>
+
+            <div class="info-card">
+                <button type="button" class="card-section editable" id="passwordSection">
+                    <span class="section-info">
+                        <span class="section-label">密码</span>
+
+                        <span class="section-value">
+                            ••••••••
+                        </span>
+                    </span>
+
+                    <span class="edit-btn danger-btn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M18 8h-1V6a5 5 0 0 0-10 0v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2Zm-6 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm3.1-9H8.9V6a3.1 3.1 0 0 1 6.2 0v2Z" />
+                        </svg>
+
+                        修改密码
+                    </span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- 弹窗 -->
+    <div id="modalContainer"></div>
+
+    <!-- 提示 -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+    <script>
+        (() => {
+            'use strict';
+
+            const LOGIN_URL = 'https://login.chenyurong.qzz.io/';
+
+            const state = {
+                username: '用户名',
+                nickname: '用户昵称',
+                birthday: '',
+                gender: '',
+                bio: '',
+                avatar: ''
+            };
+
+            const genderNames = {
+                male: '男性',
+                female: '女性',
+                custom: '自定义',
+                none: '不愿透露'
+            };
+
+            const $ = (selector, root = document) =>
+                root.querySelector(selector);
+
+            const elements = {
+                avatarWrapper: $('#avatarWrapper'),
+                avatarImage: $('#avatarImage'),
+                avatarPlaceholder: $('#avatarPlaceholder'),
+                avatarFileInput: $('#avatarFileInput'),
+                usernameDisplay: $('#usernameDisplay'),
+                heroNickname: $('#heroNickname'),
+                nicknameValue: $('#nicknameValue'),
+                accountUsernameValue: $('#accountUsernameValue'),
+                birthdayValue: $('#birthdayValue'),
+                genderValue: $('#genderValue'),
+                bioValue: $('#bioValue'),
+                navAvatarSmall: $('#navAvatarSmall'),
+                modalContainer: $('#modalContainer'),
+                toastContainer: $('#toastContainer')
+            };
+
+            async function apiFetch(
+                path,
+                options = {}
+            ) {
+                const response = await fetch(path, {
+                    credentials: 'include',
+                    ...options,
+                    headers: {
+                        ...(options.body
+                            ? { 'Content-Type': 'application/json' }
+                            : {}),
+                        ...(options.headers || {})
+                    }
+                });
+
+                let result;
+
+                try {
+                    result = await response.json();
+                } catch {
+                    result = {
+                        success: false,
+                        message: '服务器返回了无法识别的内容'
+                    };
+                }
+
+                if (
+                    response.status === 401 &&
+                    path !== '/api/userinfo'
+                ) {
+                    setTimeout(redirectToLogin, 800);
+                }
+
+                return {
+                    response,
+                    result
+                };
+            }
+
+            function redirectToLogin() {
+                const target =
+                    `${LOGIN_URL}?from=${encodeURIComponent(
+                        window.location.href
+                    )}`;
+
+                window.location.href = target;
+            }
+
+            async function init() {
+                showToast('正在加载个人资料…', 'info');
+
+                try {
+                    const { response, result } =
+                        await apiFetch('/api/userinfo');
+
+                    if (
+                        !response.ok ||
+                        !result.loggedIn ||
+                        !result.data
+                    ) {
+                        showToast(
+                            '登录状态已失效，正在前往登录页面',
+                            'error'
+                        );
+
+                        setTimeout(redirectToLogin, 1200);
+                        return;
+                    }
+
+                    const user = result.data;
+
+                    state.username =
+                        String(user.username || '用户名');
+
+                    state.nickname =
+                        String(
+                            user.nickname ||
+                            user.username ||
+                            '用户昵称'
+                        );
+
+                    state.birthday =
+                        String(user.birthday || '');
+
+                    state.gender =
+                        String(user.gender || '');
+
+                    state.bio =
+                        String(user.bio || '');
+
+                    state.avatar =
+                        String(user.avatar || '');
+
+                    renderAll();
+
+                    showToast(
+                        '个人资料已同步',
+                        'success'
+                    );
+                } catch (error) {
+                    console.error(error);
+
+                    showToast(
+                        '无法连接服务器，请稍后重试',
+                        'error'
+                    );
+                }
+            }
+
+            function renderAll() {
+                elements.usernameDisplay.textContent =
+                    state.username;
+
+                elements.accountUsernameValue.textContent =
+                    state.username;
+
+                elements.heroNickname.textContent =
+                    state.nickname;
+
+                elements.nicknameValue.textContent =
+                    state.nickname;
+
+                renderBirthday();
+                renderGender();
+                renderBio();
+                renderAvatar();
+            }
+
+            function renderBirthday() {
+                if (state.birthday) {
+                    elements.birthdayValue.textContent =
+                        formatBirthday(state.birthday);
+
+                    elements.birthdayValue.classList.remove(
+                        'placeholder-text'
+                    );
+                } else {
+                    elements.birthdayValue.textContent =
+                        '尚未设置生日';
+
+                    elements.birthdayValue.classList.add(
+                        'placeholder-text'
+                    );
+                }
+            }
+
+            function renderGender() {
+                if (state.gender) {
+                    elements.genderValue.textContent =
+                        genderNames[state.gender] ||
+                        state.gender;
+
+                    elements.genderValue.classList.remove(
+                        'placeholder-text'
+                    );
+                } else {
+                    elements.genderValue.textContent =
+                        '尚未设置性别';
+
+                    elements.genderValue.classList.add(
+                        'placeholder-text'
+                    );
+                }
+            }
+
+            function renderBio() {
+                if (state.bio.trim()) {
+                    elements.bioValue.textContent =
+                        state.bio;
+
+                    elements.bioValue.classList.remove(
+                        'placeholder-text'
+                    );
+                } else {
+                    elements.bioValue.textContent =
+                        '尚未设置简介';
+
+                    elements.bioValue.classList.add(
+                        'placeholder-text'
+                    );
+                }
+            }
+
+            function renderAvatar() {
+                const initial = getInitial(
+                    state.nickname || state.username
+                );
+
+                if (state.avatar) {
+                    elements.avatarImage.src = state.avatar;
+                    elements.avatarImage.hidden = false;
+                    elements.avatarPlaceholder.hidden = true;
+
+                    elements.navAvatarSmall.textContent = '';
+                    elements.navAvatarSmall.style.backgroundImage =
+                        `url("${state.avatar}")`;
+
+                    elements.navAvatarSmall.classList.add(
+                        'has-image'
+                    );
+                } else {
+                    elements.avatarImage.removeAttribute('src');
+                    elements.avatarImage.hidden = true;
+
+                    elements.avatarPlaceholder.hidden = false;
+                    elements.avatarPlaceholder.textContent = initial;
+
+                    elements.navAvatarSmall.textContent = initial;
+                    elements.navAvatarSmall.style.backgroundImage = '';
+                    elements.navAvatarSmall.classList.remove(
+                        'has-image'
+                    );
+                }
+            }
+
+            function getInitial(text) {
+                const clean = String(text || '').trim();
+
+                return clean
+                    ? clean.charAt(0).toUpperCase()
+                    : 'U';
+            }
+
+            function formatBirthday(value) {
+                const match = String(value).match(
+                    /^(\d{4})-(\d{2})-(\d{2})$/
+                );
+
+                if (!match) {
+                    return value;
+                }
+
+                return `${Number(match[1])}年${Number(
+                    match[2]
+                )}月${Number(match[3])}日`;
+            }
+
+            async function updateProfile(fields) {
+                const payload = {
+                    nickname: state.nickname,
+                    birthday: state.birthday,
+                    gender: state.gender,
+                    bio: state.bio,
+                    avatar: state.avatar,
+                    ...fields
+                };
+
+                const { response, result } =
+                    await apiFetch('/api/user/update', {
+                        method: 'POST',
+                        body: JSON.stringify(payload)
+                    });
+
+                if (
+                    !response.ok ||
+                    !result.success
+                ) {
+                    throw new Error(
+                        result.message || '保存失败'
+                    );
+                }
+
+                return result;
+            }
+
+            // 上传头像
+            elements.avatarWrapper.addEventListener(
+                'click',
+                () => {
+                    elements.avatarFileInput.click();
+                }
+            );
+
+            elements.avatarFileInput.addEventListener(
+                'change',
+                async (event) => {
+                    const file = event.target.files?.[0];
+
+                    if (!file) {
+                        return;
+                    }
+
+                    if (
+                        ![
+                            'image/png',
+                            'image/jpeg',
+                            'image/webp',
+                            'image/gif'
+                        ].includes(file.type)
+                    ) {
+                        showToast(
+                            '请选择 PNG、JPG、WebP 或 GIF 图片',
+                            'error'
+                        );
+
+                        return;
+                    }
+
+                    if (file.size > 2 * 1024 * 1024) {
+                        showToast(
+                            '头像图片不能超过 2MB',
+                            'error'
+                        );
+
+                        return;
+                    }
+
+                    showToast(
+                        '正在处理头像…',
+                        'info'
+                    );
+
+                    try {
+                        const base64 = await readFile(file);
+
+                        await updateProfile({
+                            avatar: base64
+                        });
+
+                        state.avatar = base64;
+                        renderAvatar();
+
+                        showToast(
+                            '头像已更新',
+                            'success'
+                        );
+                    } catch (error) {
+                        showToast(
+                            error.message || '头像保存失败',
+                            'error'
+                        );
+                    } finally {
+                        event.target.value = '';
+                    }
+                }
+            );
+
+            function readFile(file) {
+                return new Promise(
+                    (resolve, reject) => {
+                        const reader = new FileReader();
+
+                        reader.onload = () =>
+                            resolve(reader.result);
+
+                        reader.onerror = () =>
+                            reject(
+                                new Error('无法读取图片')
+                            );
+
+                        reader.readAsDataURL(file);
+                    }
+                );
+            }
+
+            // 姓名
+            $('#nicknameSection').addEventListener(
+                'click',
+                openNicknameModal
+            );
+
+            function openNicknameModal() {
+                const modal = openModal({
+                    title: '修改姓名',
+                    body: `
+                        <div class="form-group">
+                            <label
+                                class="form-label"
+                                for="inputNickname"
+                            >
+                                姓名
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-input"
+                                id="inputNickname"
+                                value="${escapeHTML(state.nickname)}"
+                                maxlength="50"
+                                autocomplete="name"
+                                placeholder="请输入姓名"
+                            >
+
+                            <div
+                                class="form-error-msg"
+                                id="nicknameError"
+                            >
+                                姓名不能为空
+                            </div>
+
+                            <div class="form-hint">
+                                最多 50 个字符
+                            </div>
+                        </div>
+                    `,
+                    footer: `
+                        <button
+                            type="button"
+                            class="btn btn-outline"
+                            data-modal-cancel
+                        >
+                            取消
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="saveNickname"
+                        >
+                            保存
+                        </button>
+                    `
+                });
+
+                const input = $('#inputNickname', modal);
+                const error = $('#nicknameError', modal);
+                const saveButton =
+                    $('#saveNickname', modal);
+
+                focusInput(input);
+
+                input.addEventListener('input', () => {
+                    input.classList.remove('error');
+                    error.classList.remove('visible');
+                });
+
+                input.addEventListener(
+                    'keydown',
+                    (event) => {
+                        if (event.key === 'Enter') {
+                            saveButton.click();
+                        }
+                    }
+                );
+
+                saveButton.addEventListener(
+                    'click',
+                    async () => {
+                        const value =
+                            input.value.trim();
+
+                        if (!value) {
+                            input.classList.add('error');
+                            error.classList.add('visible');
+                            input.focus();
+                            return;
+                        }
+
+                        if (value === state.nickname) {
+                            closeModal();
+                            return;
+                        }
+
+                        setButtonLoading(
+                            saveButton,
+                            true
+                        );
+
+                        try {
+                            await updateProfile({
+                                nickname: value
+                            });
+
+                            state.nickname = value;
+
+                            elements.nicknameValue.textContent =
+                                value;
+
+                            elements.heroNickname.textContent =
+                                value;
+
+                            renderAvatar();
+                            closeModal();
+
+                            showToast(
+                                '姓名已更新',
+                                'success'
+                            );
+                        } catch (err) {
+                            showToast(
+                                err.message,
+                                'error'
+                            );
+
+                            setButtonLoading(
+                                saveButton,
+                                false,
+                                '保存'
+                            );
+                        }
+                    }
+                );
+            }
+
+            // 生日
+            $('#birthdaySection').addEventListener(
+                'click',
+                openBirthdayModal
+            );
+
+            function openBirthdayModal() {
+                const modal = openModal({
+                    title: '修改生日',
+                    body: `
+                        <div class="form-group">
+                            <label
+                                class="form-label"
+                                for="inputBirthday"
+                            >
+                                生日
+                            </label>
+
+                            <input
+                                type="date"
+                                class="form-input"
+                                id="inputBirthday"
+                                value="${escapeHTML(state.birthday)}"
+                                max="${getTodayString()}"
+                            >
+
+                            <div
+                                class="form-error-msg"
+                                id="birthdayError"
+                            >
+                                请选择有效的生日
+                            </div>
+
+                            <div class="form-hint">
+                                生日信息将用于完善您的账号资料
+                            </div>
+                        </div>
+                    `,
+                    footer: `
+                        <button
+                            type="button"
+                            class="btn btn-outline"
+                            data-modal-cancel
+                        >
+                            取消
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="saveBirthday"
+                        >
+                            保存
+                        </button>
+                    `
+                });
+
+                const input = $('#inputBirthday', modal);
+                const error = $('#birthdayError', modal);
+                const saveButton =
+                    $('#saveBirthday', modal);
+
+                focusInput(input);
+
+                input.addEventListener('input', () => {
+                    input.classList.remove('error');
+                    error.classList.remove('visible');
+                });
+
+                saveButton.addEventListener(
+                    'click',
+                    async () => {
+                        const value = input.value;
+
+                        if (
+                            !value ||
+                            !isValidBirthday(value)
+                        ) {
+                            input.classList.add('error');
+                            error.classList.add('visible');
+                            input.focus();
+                            return;
+                        }
+
+                        if (value === state.birthday) {
+                            closeModal();
+                            return;
+                        }
+
+                        setButtonLoading(
+                            saveButton,
+                            true
+                        );
+
+                        try {
+                            await updateProfile({
+                                birthday: value
+                            });
+
+                            state.birthday = value;
+                            renderBirthday();
+                            closeModal();
+
+                            showToast(
+                                '生日已更新',
+                                'success'
+                            );
+                        } catch (err) {
+                            showToast(
+                                err.message,
+                                'error'
+                            );
+
+                            setButtonLoading(
+                                saveButton,
+                                false,
+                                '保存'
+                            );
+                        }
+                    }
+                );
+            }
+
+            // 性别
+            $('#genderSection').addEventListener(
+                'click',
+                openGenderModal
+            );
+
+            function openGenderModal() {
+                const modal = openModal({
+                    title: '修改性别',
+                    body: `
+                        <div class="form-group">
+                            <label
+                                class="form-label"
+                                for="inputGender"
+                            >
+                                性别
+                            </label>
+
+                            <div class="select-wrapper">
+                                <select
+                                    class="form-select"
+                                    id="inputGender"
+                                >
+                                    <option value="">
+                                        请选择
+                                    </option>
+
+                                    <option
+                                        value="female"
+                                        ${state.gender === 'female'
+                            ? 'selected'
+                            : ''}
+                                    >
+                                        女性
+                                    </option>
+
+                                    <option
+                                        value="male"
+                                        ${state.gender === 'male'
+                            ? 'selected'
+                            : ''}
+                                    >
+                                        男性
+                                    </option>
+
+                                    <option
+                                        value="custom"
+                                        ${state.gender === 'custom'
+                            ? 'selected'
+                            : ''}
+                                    >
+                                        自定义
+                                    </option>
+
+                                    <option
+                                        value="none"
+                                        ${state.gender === 'none'
+                            ? 'selected'
+                            : ''}
+                                    >
+                                        不愿透露
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div
+                                class="form-error-msg"
+                                id="genderError"
+                            >
+                                请选择性别
+                            </div>
+                        </div>
+                    `,
+                    footer: `
+                        <button
+                            type="button"
+                            class="btn btn-outline"
+                            data-modal-cancel
+                        >
+                            取消
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="saveGender"
+                        >
+                            保存
+                        </button>
+                    `
+                });
+
+                const input = $('#inputGender', modal);
+                const error = $('#genderError', modal);
+                const saveButton =
+                    $('#saveGender', modal);
+
+                focusInput(input);
+
+                input.addEventListener('change', () => {
+                    input.classList.remove('error');
+                    error.classList.remove('visible');
+                });
+
+                saveButton.addEventListener(
+                    'click',
+                    async () => {
+                        const value = input.value;
+
+                        if (!genderNames[value]) {
+                            input.classList.add('error');
+                            error.classList.add('visible');
+                            input.focus();
+                            return;
+                        }
+
+                        if (value === state.gender) {
+                            closeModal();
+                            return;
+                        }
+
+                        setButtonLoading(
+                            saveButton,
+                            true
+                        );
+
+                        try {
+                            await updateProfile({
+                                gender: value
+                            });
+
+                            state.gender = value;
+                            renderGender();
+                            closeModal();
+
+                            showToast(
+                                '性别已更新',
+                                'success'
+                            );
+                        } catch (err) {
+                            showToast(
+                                err.message,
+                                'error'
+                            );
+
+                            setButtonLoading(
+                                saveButton,
+                                false,
+                                '保存'
+                            );
+                        }
+                    }
+                );
+            }
+
+            // 简介
+            $('#bioSection').addEventListener(
+                'click',
+                openBioModal
+            );
+
+            function openBioModal() {
+                const modal = openModal({
+                    title: '修改简介',
+                    body: `
+                        <div class="form-group">
+                            <label
+                                class="form-label"
+                                for="inputBio"
+                            >
+                                个人简介
+                            </label>
+
+                            <textarea
+                                class="form-textarea"
+                                id="inputBio"
+                                maxlength="300"
+                                placeholder="介绍一下自己…"
+                            >${escapeHTML(state.bio)}</textarea>
+
+                            <div class="form-hint">
+                                最多 300 个字符 ·
+                                <span id="bioCount">
+                                    ${state.bio.length}
+                                </span>/300
+                            </div>
+                        </div>
+                    `,
+                    footer: `
+                        <button
+                            type="button"
+                            class="btn btn-outline"
+                            data-modal-cancel
+                        >
+                            取消
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="saveBio"
+                        >
+                            保存
+                        </button>
+                    `
+                });
+
+                const input = $('#inputBio', modal);
+                const counter = $('#bioCount', modal);
+                const saveButton =
+                    $('#saveBio', modal);
+
+                focusInput(input);
+
+                input.addEventListener('input', () => {
+                    counter.textContent =
+                        input.value.length;
+                });
+
+                saveButton.addEventListener(
+                    'click',
+                    async () => {
+                        const value =
+                            input.value.trim();
+
+                        if (value === state.bio) {
+                            closeModal();
+                            return;
+                        }
+
+                        setButtonLoading(
+                            saveButton,
+                            true
+                        );
+
+                        try {
+                            await updateProfile({
+                                bio: value
+                            });
+
+                            state.bio = value;
+                            renderBio();
+                            closeModal();
+
+                            showToast(
+                                '简介已更新',
+                                'success'
+                            );
+                        } catch (err) {
+                            showToast(
+                                err.message,
+                                'error'
+                            );
+
+                            setButtonLoading(
+                                saveButton,
+                                false,
+                                '保存'
+                            );
+                        }
+                    }
+                );
+            }
+
+            // 修改密码
+            $('#passwordSection').addEventListener(
+                'click',
+                openPasswordModal
+            );
+
+            function openPasswordModal() {
+                const modal = openModal({
+                    title: '修改密码',
+                    body: `
+                        <div class="form-group">
+                            <label
+                                class="form-label"
+                                for="currentPassword"
+                            >
+                                当前密码
+                            </label>
+
+                            <div class="password-field">
+                                <input
+                                    type="password"
+                                    class="form-input"
+                                    id="currentPassword"
+                                    autocomplete="current-password"
+                                    placeholder="请输入当前密码"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-toggle-password="currentPassword"
+                                >
+                                    显示
+                                </button>
+                            </div>
+
+                            <div
+                                class="form-error-msg"
+                                id="currentPasswordError"
+                            >
+                                请输入当前密码
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label
+                                class="form-label"
+                                for="newPassword"
+                            >
+                                新密码
+                            </label>
+
+                            <div class="password-field">
+                                <input
+                                    type="password"
+                                    class="form-input"
+                                    id="newPassword"
+                                    autocomplete="new-password"
+                                    placeholder="请输入至少 8 位新密码"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-toggle-password="newPassword"
+                                >
+                                    显示
+                                </button>
+                            </div>
+
+                            <div class="password-strength">
+                                <div
+                                    class="strength-bar"
+                                    id="strengthBar"
+                                ></div>
+                            </div>
+
+                            <div
+                                class="form-error-msg"
+                                id="newPasswordError"
+                            >
+                                新密码至少需要 8 个字符
+                            </div>
+
+                            <div
+                                class="form-hint"
+                                id="passwordHint"
+                            >
+                                建议同时包含字母、数字和符号
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label
+                                class="form-label"
+                                for="confirmPassword"
+                            >
+                                确认新密码
+                            </label>
+
+                            <div class="password-field">
+                                <input
+                                    type="password"
+                                    class="form-input"
+                                    id="confirmPassword"
+                                    autocomplete="new-password"
+                                    placeholder="请再次输入新密码"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-toggle-password="confirmPassword"
+                                >
+                                    显示
+                                </button>
+                            </div>
+
+                            <div
+                                class="form-error-msg"
+                                id="confirmPasswordError"
+                            >
+                                两次输入的密码不一致
+                            </div>
+                        </div>
+                    `,
+                    footer: `
+                        <button
+                            type="button"
+                            class="btn btn-outline"
+                            data-modal-cancel
+                        >
+                            取消
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-danger"
+                            id="savePassword"
+                        >
+                            更新密码
+                        </button>
+                    `
+                });
+
+                const currentInput =
+                    $('#currentPassword', modal);
+
+                const newInput =
+                    $('#newPassword', modal);
+
+                const confirmInput =
+                    $('#confirmPassword', modal);
+
+                const currentError =
+                    $('#currentPasswordError', modal);
+
+                const newError =
+                    $('#newPasswordError', modal);
+
+                const confirmError =
+                    $('#confirmPasswordError', modal);
+
+                const strengthBar =
+                    $('#strengthBar', modal);
+
+                const passwordHint =
+                    $('#passwordHint', modal);
+
+                const saveButton =
+                    $('#savePassword', modal);
+
+                focusInput(currentInput);
+
+                modal
+                    .querySelectorAll(
+                        '[data-toggle-password]'
+                    )
+                    .forEach((button) => {
+                        button.addEventListener(
+                            'click',
+                            () => {
+                                const field =
+                                    $(
+                                        `#${button.dataset.togglePassword}`,
+                                        modal
+                                    );
+
+                                const visible =
+                                    field.type === 'text';
+
+                                field.type =
+                                    visible
+                                        ? 'password'
+                                        : 'text';
+
+                                button.textContent =
+                                    visible
+                                        ? '显示'
+                                        : '隐藏';
+                            }
+                        );
+                    });
+
+                currentInput.addEventListener(
+                    'input',
+                    () => {
+                        currentInput.classList.remove(
+                            'error'
+                        );
+
+                        currentError.classList.remove(
+                            'visible'
+                        );
+                    }
+                );
+
+                newInput.addEventListener(
+                    'input',
+                    () => {
+                        newInput.classList.remove('error');
+                        newError.classList.remove('visible');
+
+                        updatePasswordStrength(
+                            newInput.value,
+                            strengthBar,
+                            passwordHint
+                        );
+
+                        validateConfirmation(
+                            newInput,
+                            confirmInput,
+                            confirmError
+                        );
+                    }
+                );
+
+                confirmInput.addEventListener(
+                    'input',
+                    () => {
+                        validateConfirmation(
+                            newInput,
+                            confirmInput,
+                            confirmError
+                        );
+                    }
+                );
+
+                saveButton.addEventListener(
+                    'click',
+                    async () => {
+                        const currentPassword =
+                            currentInput.value;
+
+                        const newPassword =
+                            newInput.value;
+
+                        const confirmPassword =
+                            confirmInput.value;
+
+                        let invalid = false;
+
+                        if (!currentPassword) {
+                            currentInput.classList.add(
+                                'error'
+                            );
+
+                            currentError.classList.add(
+                                'visible'
+                            );
+
+                            invalid = true;
+                        }
+
+                        if (newPassword.length < 8) {
+                            newInput.classList.add('error');
+                            newError.classList.add('visible');
+                            invalid = true;
+                        }
+
+                        if (
+                            !confirmPassword ||
+                            confirmPassword !== newPassword
+                        ) {
+                            confirmInput.classList.add(
+                                'error'
+                            );
+
+                            confirmError.classList.add(
+                                'visible'
+                            );
+
+                            invalid = true;
+                        }
+
+                        if (invalid) {
+                            return;
+                        }
+
+                        if (
+                            currentPassword === newPassword
+                        ) {
+                            showToast(
+                                '新密码不能与当前密码相同',
+                                'error'
+                            );
+
+                            return;
+                        }
+
+                        setButtonLoading(
+                            saveButton,
+                            true
+                        );
+
+                        try {
+                            const { response, result } =
+                                await apiFetch(
+                                    '/api/user/change-password',
+                                    {
+                                        method: 'POST',
+                                        body: JSON.stringify({
+                                            current_password:
+                                                currentPassword,
+                                            new_password:
+                                                newPassword
+                                        })
+                                    }
+                                );
+
+                            if (
+                                !response.ok ||
+                                !result.success
+                            ) {
+                                throw new Error(
+                                    result.message ||
+                                    '密码修改失败'
+                                );
+                            }
+
+                            closeModal();
+
+                            showToast(
+                                '密码已成功更新',
+                                'success'
+                            );
+                        } catch (err) {
+                            showToast(
+                                err.message,
+                                'error'
+                            );
+
+                            setButtonLoading(
+                                saveButton,
+                                false,
+                                '更新密码'
+                            );
+                        }
+                    }
+                );
+            }
+
+            function validateConfirmation(
+                newInput,
+                confirmInput,
+                errorElement
+            ) {
+                const mismatch =
+                    confirmInput.value &&
+                    confirmInput.value !==
+                    newInput.value;
+
+                confirmInput.classList.toggle(
+                    'error',
+                    Boolean(mismatch)
+                );
+
+                errorElement.classList.toggle(
+                    'visible',
+                    Boolean(mismatch)
+                );
+            }
+
+            function updatePasswordStrength(
+                password,
+                bar,
+                hint
+            ) {
+                const score =
+                    getPasswordStrength(password);
+
+                bar.className = 'strength-bar';
+
+                if (!password) {
+                    bar.style.width = '0';
+                    hint.textContent =
+                        '建议同时包含字母、数字和符号';
+
+                    hint.removeAttribute('data-level');
+                    return;
+                }
+
+                if (score <= 1) {
+                    bar.classList.add(
+                        'strength-weak'
+                    );
+
+                    hint.textContent =
+                        '密码强度：弱';
+
+                    hint.dataset.level = 'weak';
+                    return;
+                }
+
+                if (score === 2) {
+                    bar.classList.add(
+                        'strength-fair'
+                    );
+
+                    hint.textContent =
+                        '密码强度：一般';
+
+                    hint.dataset.level = 'fair';
+                    return;
+                }
+
+                if (score === 3) {
+                    bar.classList.add(
+                        'strength-good'
+                    );
+
+                    hint.textContent =
+                        '密码强度：良好';
+
+                    hint.dataset.level = 'good';
+                    return;
+                }
+
+                bar.classList.add(
+                    'strength-strong'
+                );
+
+                hint.textContent =
+                    '密码强度：优秀';
+
+                hint.dataset.level = 'strong';
+            }
+
+            function getPasswordStrength(password) {
+                if (password.length < 8) {
+                    return 0;
+                }
+
+                let score = 0;
+
+                if (/[a-z]/.test(password)) {
+                    score++;
+                }
+
+                if (/[A-Z]/.test(password)) {
+                    score++;
+                }
+
+                if (/\d/.test(password)) {
+                    score++;
+                }
+
+                if (/[^A-Za-z0-9]/.test(password)) {
+                    score++;
+                }
+
+                if (password.length >= 12) {
+                    score++;
+                }
+
+                return Math.min(score, 4);
+            }
+
+            function openModal({
+                title,
+                body,
+                footer = ''
+            }) {
+                closeModal(true);
+
+                const backdrop =
+                    document.createElement('div');
+
+                backdrop.className =
+                    'modal-backdrop';
+
+                backdrop.innerHTML = `
+                    <div
+                        class="modal-dialog"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label="${escapeHTML(title)}"
+                    >
+                        <header class="modal-header">
+                            <h2>${escapeHTML(title)}</h2>
+
+                            <button
+                                type="button"
+                                class="modal-close-btn"
+                                aria-label="关闭"
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="m19 6.41-1.41-1.41L12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"
+                                    />
+                                </svg>
+                            </button>
+                        </header>
+
+                        <div class="modal-body">
+                            ${body}
+                        </div>
+
+                        ${footer
+                        ? `
+                                <footer class="modal-footer">
+                                    ${footer}
+                                </footer>
+                            `
+                        : ''}
+                    </div>
+                `;
+
+                elements.modalContainer.appendChild(
+                    backdrop
+                );
+
+                const closeButton =
+                    $('.modal-close-btn', backdrop);
+
+                closeButton.addEventListener(
+                    'click',
+                    () => closeModal()
+                );
+
+                backdrop
+                    .querySelectorAll(
+                        '[data-modal-cancel]'
+                    )
+                    .forEach((button) => {
+                        button.addEventListener(
+                            'click',
+                            () => closeModal()
+                        );
+                    });
+
+                backdrop.addEventListener(
+                    'click',
+                    (event) => {
+                        if (event.target === backdrop) {
+                            closeModal();
+                        }
+                    }
+                );
+
+                const keyHandler = (event) => {
+                    if (event.key === 'Escape') {
+                        closeModal();
+                    }
+                };
+
+                document.addEventListener(
+                    'keydown',
+                    keyHandler
+                );
+
+                backdrop.cleanup = () => {
+                    document.removeEventListener(
+                        'keydown',
+                        keyHandler
+                    );
+                };
+
+                document.body.classList.add(
+                    'modal-open'
+                );
+
+                return backdrop;
+            }
+
+            function closeModal(immediate = false) {
+                const backdrop =
+                    $('.modal-backdrop');
+
+                if (!backdrop) {
+                    return;
+                }
+
+                if (backdrop.cleanup) {
+                    backdrop.cleanup();
+                }
+
+                document.body.classList.remove(
+                    'modal-open'
+                );
+
+                if (immediate) {
+                    backdrop.remove();
+                    return;
+                }
+
+                backdrop.classList.add('closing');
+
+                $('.modal-dialog', backdrop)
+                    ?.classList.add('closing');
+
+                setTimeout(() => {
+                    backdrop.remove();
+                }, 180);
+            }
+
+            function setButtonLoading(
+                button,
+                loading,
+                restoredText = ''
+            ) {
+                button.disabled = loading;
+
+                button.classList.toggle(
+                    'btn-loading',
+                    loading
+                );
+
+                if (loading) {
+                    button.dataset.originalText =
+                        button.textContent.trim();
+
+                    return;
+                }
+
+                button.textContent =
+                    restoredText ||
+                    button.dataset.originalText ||
+                    button.textContent;
+            }
+
+            function focusInput(input) {
+                setTimeout(() => {
+                    input.focus();
+
+                    if (
+                        input instanceof
+                        HTMLInputElement &&
+                        input.type === 'text'
+                    ) {
+                        input.select();
+                    }
+                }, 100);
+            }
+
+            function getTodayString() {
+                const today = new Date();
+
+                const year =
+                    today.getFullYear();
+
+                const month =
+                    String(
+                        today.getMonth() + 1
+                    ).padStart(2, '0');
+
+                const day =
+                    String(
+                        today.getDate()
+                    ).padStart(2, '0');
+
+                return `${year}-${month}-${day}`;
+            }
+
+            function isValidBirthday(value) {
+                if (
+                    !/^\d{4}-\d{2}-\d{2}$/.test(value)
+                ) {
+                    return false;
+                }
+
+                const date =
+                    new Date(`${value}T00:00:00`);
+
+                if (
+                    Number.isNaN(date.getTime())
+                ) {
+                    return false;
+                }
+
+                return value <= getTodayString();
+            }
+
+            function escapeHTML(value) {
+                const div =
+                    document.createElement('div');
+
+                div.textContent =
+                    String(value ?? '');
+
+                return div.innerHTML;
+            }
+
+            function showToast(
+                text,
+                type = 'info'
+            ) {
+                const toast =
+                    document.createElement('div');
+
+                toast.className =
+                    `toast ${type}`;
+
+                toast.textContent = text;
+
+                elements.toastContainer.appendChild(
+                    toast
+                );
+
+                setTimeout(() => {
+                    toast.classList.add('removing');
+
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 250);
+                }, 2800);
+            }
+
+            document.addEventListener(
+                'DOMContentLoaded',
+                init
+            );
+        })();
+    </script>
+</body>
+
+</html>
