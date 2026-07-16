@@ -20,7 +20,6 @@
 
 <body>
 
-    <!-- 顶部导航栏 -->
     <nav class="top-nav">
         <a href="/" class="brand" aria-label="Orange 账号">
             <svg class="brand-icon" viewBox="0 0 64 64" aria-hidden="true">
@@ -63,7 +62,6 @@
         </button>
     </nav>
 
-    <!-- 主内容 -->
     <main class="main-container">
 
         <header class="page-header">
@@ -73,7 +71,6 @@
             </p>
         </header>
 
-        <!-- 用户头像 -->
         <section class="profile-hero-card">
             <button type="button" class="avatar-wrapper" id="avatarWrapper" title="点击更换头像" aria-label="更换头像">
                 <img class="avatar-image" id="avatarImage" src="" alt="用户头像" hidden>
@@ -100,12 +97,11 @@
                 用户名
             </div>
 
-            <div class="profile-name-display" id="heroNickname">
-                用户昵称
+            <div class="profile-name-display" id="heroName">
+                姓名
             </div>
         </section>
 
-        <!-- 基本信息 -->
         <section class="section-block">
             <div class="section-heading">
                 <h2>基本信息</h2>
@@ -114,13 +110,12 @@
 
             <div class="info-card">
 
-                <!-- 姓名 / 昵称 -->
-                <button type="button" class="card-section editable" id="nicknameSection">
+                <button type="button" class="card-section editable" id="nameSection">
                     <span class="section-info">
                         <span class="section-label">姓名</span>
 
-                        <span class="section-value" id="nicknameValue">
-                            用户昵称
+                        <span class="section-value" id="nameValue">
+                            姓名
                         </span>
                     </span>
 
@@ -134,7 +129,6 @@
                     </span>
                 </button>
 
-                <!-- 用户名 -->
                 <div class="card-section">
                     <span class="section-info">
                         <span class="section-label">用户名</span>
@@ -147,7 +141,6 @@
                     <span class="read-only-tag">不可修改</span>
                 </div>
 
-                <!-- 生日 -->
                 <button type="button" class="card-section editable" id="birthdaySection">
                     <span class="section-info">
                         <span class="section-label">生日</span>
@@ -167,7 +160,6 @@
                     </span>
                 </button>
 
-                <!-- 性别 -->
                 <button type="button" class="card-section editable" id="genderSection">
                     <span class="section-info">
                         <span class="section-label">性别</span>
@@ -187,7 +179,6 @@
                     </span>
                 </button>
 
-                <!-- 简介 -->
                 <button type="button" class="card-section editable" id="bioSection">
                     <span class="section-info">
                         <span class="section-label">简介</span>
@@ -209,7 +200,6 @@
             </div>
         </section>
 
-        <!-- 安全设置 -->
         <section class="section-block">
             <div class="section-heading">
                 <h2>安全设置</h2>
@@ -239,10 +229,8 @@
         </section>
     </main>
 
-    <!-- 弹窗 -->
     <div id="modalContainer"></div>
 
-    <!-- 提示 -->
     <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
     <script>
@@ -253,7 +241,7 @@
 
             const state = {
                 username: '用户名',
-                nickname: '用户昵称',
+                name: '姓名', // 修改点：nickname 变为 name
                 birthday: '',
                 gender: '',
                 bio: '',
@@ -276,8 +264,8 @@
                 avatarPlaceholder: $('#avatarPlaceholder'),
                 avatarFileInput: $('#avatarFileInput'),
                 usernameDisplay: $('#usernameDisplay'),
-                heroNickname: $('#heroNickname'),
-                nicknameValue: $('#nicknameValue'),
+                heroName: $('#heroName'), // 修改点：更新元素绑定
+                nameValue: $('#nameValue'), // 修改点：更新元素绑定
                 accountUsernameValue: $('#accountUsernameValue'),
                 birthdayValue: $('#birthdayValue'),
                 genderValue: $('#genderValue'),
@@ -361,11 +349,12 @@
                     state.username =
                         String(user.username || '用户名');
 
-                    state.nickname =
+                    // 修改点：读取后端返回的 user.name，并更新到 state.name
+                    state.name =
                         String(
-                            user.nickname ||
+                            user.name ||
                             user.username ||
-                            '用户昵称'
+                            '姓名'
                         );
 
                     state.birthday =
@@ -403,11 +392,12 @@
                 elements.accountUsernameValue.textContent =
                     state.username;
 
-                elements.heroNickname.textContent =
-                    state.nickname;
+                // 修改点：渲染 name
+                elements.heroName.textContent =
+                    state.name;
 
-                elements.nicknameValue.textContent =
-                    state.nickname;
+                elements.nameValue.textContent =
+                    state.name;
 
                 renderBirthday();
                 renderGender();
@@ -471,8 +461,9 @@
             }
 
             function renderAvatar() {
+                // 修改点：基于 name 或 username 获取首字母
                 const initial = getInitial(
-                    state.nickname || state.username
+                    state.name || state.username
                 );
 
                 if (state.avatar) {
@@ -526,7 +517,7 @@
 
             async function updateProfile(fields) {
                 const payload = {
-                    nickname: state.nickname,
+                    name: state.name, // 修改点：提交 name
                     birthday: state.birthday,
                     gender: state.gender,
                     bio: state.bio,
@@ -642,20 +633,21 @@
                 );
             }
 
-            // 姓名
-            $('#nicknameSection').addEventListener(
+            // 姓名修改逻辑 (原 nickname)
+            $('#nameSection').addEventListener(
                 'click',
-                openNicknameModal
+                openNameModal
             );
 
-            function openNicknameModal() {
+            // 修改点：函数重命名并更新其内部模板和变量
+            function openNameModal() {
                 const modal = openModal({
                     title: '修改姓名',
                     body: `
                         <div class="form-group">
                             <label
                                 class="form-label"
-                                for="inputNickname"
+                                for="inputName"
                             >
                                 姓名
                             </label>
@@ -663,8 +655,8 @@
                             <input
                                 type="text"
                                 class="form-input"
-                                id="inputNickname"
-                                value="${escapeHTML(state.nickname)}"
+                                id="inputName"
+                                value="${escapeHTML(state.name)}"
                                 maxlength="50"
                                 autocomplete="name"
                                 placeholder="请输入姓名"
@@ -672,7 +664,7 @@
 
                             <div
                                 class="form-error-msg"
-                                id="nicknameError"
+                                id="nameError"
                             >
                                 姓名不能为空
                             </div>
@@ -694,17 +686,17 @@
                         <button
                             type="button"
                             class="btn btn-primary"
-                            id="saveNickname"
+                            id="saveName"
                         >
                             保存
                         </button>
                     `
                 });
 
-                const input = $('#inputNickname', modal);
-                const error = $('#nicknameError', modal);
+                const input = $('#inputName', modal);
+                const error = $('#nameError', modal);
                 const saveButton =
-                    $('#saveNickname', modal);
+                    $('#saveName', modal);
 
                 focusInput(input);
 
@@ -735,7 +727,7 @@
                             return;
                         }
 
-                        if (value === state.nickname) {
+                        if (value === state.name) {
                             closeModal();
                             return;
                         }
@@ -747,15 +739,15 @@
 
                         try {
                             await updateProfile({
-                                nickname: value
+                                name: value
                             });
 
-                            state.nickname = value;
+                            state.name = value;
 
-                            elements.nicknameValue.textContent =
+                            elements.nameValue.textContent =
                                 value;
 
-                            elements.heroNickname.textContent =
+                            elements.heroName.textContent =
                                 value;
 
                             renderAvatar();
